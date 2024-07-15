@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "manifest_version": 3,
+  "name": "Gemini Snippet on Search",
+  "author": "simonvillafanee3@gmail.com",
+  "description": "Base Level Extension",
+  "version": "1.0",
+  "content_scripts": [
+    {
+
+    }
+  ],
+  "action": {
+    "default_popup": "/popup.html",
+    "default_icon": {
+      "16": "/assets/favicon.webp",
+      "32": "/assets/favicon.webp",
+      "48": "/assets/favicon.webp",
+      "128": "/assets/favicon.webp"
+    }
+  },
+  "permissions": ["scripting", "activeTab"]
+}

@@ -1,0 +1,1 @@
+// your chrome API use cases (not include DOM manipulation here)

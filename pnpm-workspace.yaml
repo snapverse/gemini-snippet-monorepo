@@ -1,0 +1,4 @@
+packages:
+  - 'sandbox'
+  - 'api'
+  - 'ext-chrome'

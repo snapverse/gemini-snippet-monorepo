@@ -1,0 +1,1 @@
+console.log('Building chrome extension for production porpuse...')

@@ -1,0 +1,7 @@
+coverage/
+public/
+dist/
+node_modules/
+
+pnpm-workspace.yaml
+pnpm-lock.yaml
