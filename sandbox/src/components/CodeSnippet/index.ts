@@ -3,7 +3,7 @@ import './stylesheet.css';
 interface SnippetInit {
   explanation: string;
   code: string;
-  language: { short: string; long: string };
+  language: string;
   source: string;
 }
 
@@ -22,9 +22,9 @@ export default class CodeSnippet {
   }: {
     explanation: string;
     code: string;
-    language: { short: string; long: string };
+    language: string;
     source?: string;
-    engine?: 'Gemini 1.1',
+    engine?: 'Gemini 1.1';
   }) {
     const container = document.createElement('section');
     container.classList.add('gem_ChromeSnippetContainer');
@@ -48,20 +48,16 @@ export default class CodeSnippet {
   private createSnippet(props: {
     code: string;
     source: string;
-    language: { short: string; long: string };
+    language: string;
   }) {
     const snippet = document.createElement('main');
     snippet.classList.add('gem_ChromeSnippet');
 
-    const {
-      code,
-      source,
-      language: { short, long }
-    } = props;
+    const { code, source, language } = props;
 
     [
-      this.createHeader({ language: { long } }),
-      this.createCode({ code, language: { short } }),
+      this.createHeader({ language }),
+      this.createCode({ code, language }),
       this.createFooter({ source }),
       this.createVotes({ votes: 0 })
     ].forEach((child) => snippet.appendChild(child));
@@ -69,18 +65,18 @@ export default class CodeSnippet {
     return snippet;
   }
 
-  private createHeader(props: { language: { long: string } }) {
+  private createHeader(props: { language: string }) {
     const header = document.createElement('div');
     header.setAttribute('role', 'header');
-    header.innerHTML = /*html*/ `<strong>${props.language.long}</strong>`;
+    header.innerHTML = /*html*/ `<strong>${props.language}</strong>`;
 
     return header;
   }
 
-  private createCode(props: { code: string; language: { short: string } }) {
+  private createCode(props: { code: string; language: string }) {
     const code = document.createElement('pre');
     code.setAttribute('role', 'code');
-    code.classList.add(`language-${props.language.short}`);
+    code.classList.add(`language-${props.language.toLowerCase()}`);
     code.innerHTML = /*html*/ `<code>${props.code}</code>`;
 
     return code;
