@@ -1,0 +1,206 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.material-symbols-outlined {
+  color: #c4c7c5;
+  font-weight: 400;
+  font-size: 20px;
+}
+
+.gem_ChromeSnippetContainer {
+  width: 641px;
+  position: relative;
+}
+
+.gem_ChromeSnippetContainer > p {
+  color: #e3e3e3;
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 400;
+  font-style: normal;
+  font-family: sans-serif;
+
+  margin-bottom: 20px;
+}
+
+.gem_ChromeSnippetContainer > p::before {
+  content: ' ';
+  display: block;
+  width: 28px;
+  height: 28px;
+  position: absolute;
+  top: 0px;
+  left: -48px;
+
+  background-image: url(https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg);
+  background-size: contain;
+}
+
+.gem_ChromeSnippet {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: normal;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+
+  width: calc(100% - 40px);
+}
+
+.gem_ChromeSnippet div[role='header'] {
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+
+  padding-top: 18px;
+  padding-bottom: 8px;
+  padding-left: 15px;
+
+  background: #27292b;
+}
+
+.gem_ChromeSnippet div[role='header'] strong {
+  font-size: 18px;
+  font-weight: 500;
+  font-style: normal;
+  font-family: sans-serif;
+  line-height: normal;
+
+  color: #c4c7c5;
+}
+
+.gem_ChromeSnippet pre[role='code'] {
+  background: none;
+  border: none;
+  outline: none;
+  overflow-y: auto;
+  overflow-x: auto;
+  resize: none;
+
+  padding-top: 25px;
+  padding-bottom: 25px;
+  padding-left: 17px;
+  padding-right: 17px;
+
+  border-radius: 0px 0px 5px 5px;
+  margin-bottom: 2px;
+
+  width: 100%;
+  min-height: 100%;
+  max-height: 500px;
+
+  font-family: monospace;
+  font-size: 15px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: normal;
+
+  color: white;
+  background: #27292b;
+}
+
+.gem_ChromeSnippet div[role='footer'] {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-left: 15px;
+  padding-right: 15px;
+
+  background: #27292b;
+}
+
+.gem_ChromeSnippet div[role='footer'] i {
+  font-size: 14px;
+  font-weight: 400;
+  font-style: normal;
+  font-family: sans-serif;
+  line-height: normal;
+
+  color: #c4c7c5;
+}
+
+.gem_ChromeSnippet div[role='footer'] i a {
+  line-height: normal;
+  text-decoration-line: underline;
+
+  color: #a8c7fa;
+}
+
+.gem_ChromeSnippet div[role='votes'] {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: normal;
+  flex-wrap: nowrap;
+  row-gap: 4px;
+
+  position: absolute;
+  top: 0px;
+  right: -45px;
+}
+
+.gem_ChromeSnippet div[role='votes'] i {
+  font-size: 16px;
+  font-weight: 500;
+  font-style: normal;
+  line-height: normal;
+  font-family: sans-serif;
+
+  color: #e8eaed;
+}
+
+.gem_ChromeSnippet div[role='votes'] > span {
+  font-size: 26px;
+
+  opacity: 0.25;
+  color: #e8eaed;
+}
+
+.gem_ChromeSnippetContainer div[role='actions'] {
+  display: flex;
+  align-items: center;
+  justify-content: normal;
+  flex-wrap: nowrap;
+  column-gap: 12px;
+
+  margin-top: 12px;
+}
+
+.gem_ChromeSnippetContainer div[role='actions'] .gem_ChromeSnippetEngine {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: normal;
+  flex-wrap: nowrap;
+  column-gap: 3px;
+  border-radius: 8px;
+
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 6px;
+  padding-right: 12px;
+
+  font-size: 12px;
+  font-weight: 300;
+  font-style: normal;
+  line-height: normal;
+  font-family: sans-serif;
+  text-transform: capitalize;
+
+  color: #c4c7c5;
+  background: rgba(196, 199, 197, 0.1);
+}

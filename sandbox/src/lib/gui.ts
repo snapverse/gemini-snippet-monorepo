@@ -4,10 +4,7 @@ import setupWindow from './setupWindow';
 
 export default class GUI {
   protected root = document.querySelector<HTMLDivElement>('#__root__');
-  protected googleEngine = new GoogleSearchEngine({
-    apiKey: import.meta.env.VITE_GOOGLE_CUSTOM_SEARCH_API,
-    cx: import.meta.env.VITE_GOOGLE_ENGINE_CX
-  });
+  protected googleEngine = new GoogleSearchEngine();
 
   public constructor() {
     this.onInit();
@@ -55,8 +52,8 @@ export default class GUI {
   }
 
   private behaviors: { [key: string]: (value: unknown) => void } = {
-    component() {
-      // Add behavior logic if necessary
+    async component(value: string) {
+      console.log(value)
     },
     darkMode() {
       // Add behavior logic if necessary
@@ -69,8 +66,6 @@ export default class GUI {
 
       const query = value.split(' ').join('+');
       const iframe = this.createIframe(query);
-
-      console.log('GOOGLE SEARCH: ', await this.googleEngine.search(query));
 
       while (this.root.firstChild) {
         this.root.removeChild(this.root.firstChild);

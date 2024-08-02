@@ -1,44 +1,23 @@
-
+import CodeSnippet from './components/CodeSnippet';
 import GUI from './lib/gui';
 import './main.css';
 
-new GUI()
+new GUI();
 
-// const root = document.querySelector<HTMLElement>('#__root__')
-// const preview = document.createElement('iframe')
+// const root = document.querySelector<HTMLElement>('#__root__');
 
-// const toggleTheme = () => {}
+const SHORT_LANG = 'ts';
+const LONG_LANG = 'TypeScript';
+const CODE_SNIPPET = `console.log("Hello, world"); // Log a string
+let name = "Sandra"
+console.log("Name: ", name); // Log a variable`;
+const TEXT = `En TypeScript, console.log funciona de la misma manera que en JavaScript. Es una función que se utiliza para depurar y registrar información en la consola de desarrollo del navegador. <br><br> Así es como se usa:`;
+const SOURCE = 'gemini';
 
-// const updateRenderPreview = (paths: string) => {
-// console.log(paths)
-// const [htmlPath, cssPath, jsPath] = paths.map((path) => __dirname + path)
+new CodeSnippet({
+  code: CODE_SNIPPET,
+  explanation: TEXT,
+  language: { short: SHORT_LANG, long: LONG_LANG },
+  source: SOURCE
+}, '#__root__');
 
-// Promise.all([import(htmlPath), import(cssPath), import(jsPath)]).then(
-//   (res) => {
-//   }
-// )
-
-// const stringHTML = `
-// 	<!doctype html>
-// 	<html>
-// 		<head>
-// 			<style>${css}</style>
-// 		</head>
-// 		<body>
-// 			${html}
-// 			<script lang="ts" type="module">${js}</script>
-// 		</body>
-// 	</html>
-// `
-
-// preview.src = 'data:text/html;charset=utf-8,' + encodeURIComponent(stringHTML)
-// root.appendChild(preview)
-// }
-
-// const init = () => {
-//   updateRenderPreview(PARAMS.component)
-
-//   console.log('dom loaded!')
-// }
-
-// document.addEventListener('DOMContentLoaded', init)

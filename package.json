@@ -4,14 +4,17 @@
   "keywords": [],
   "author": "",
   "description": "",
-  "license": "ISC",
+  "license": "MIT",
   "main": "index.js",
   "engines": {
-    "node": ">=20.0.0"
+    "pnpm": ">=9.0.0",
+    "npm": ">=9.0.0 ",
+    "node": ">=20.0.0 "
   },
   "scripts": {
     "build": "echo \"Extension just build successfully ✨\"",
-    "sandbox": "pnpm --filter sandbox dev",
+    "sandbox:run": "pnpm --filter sandbox dev",
+    "api:run": "pnpm --filter api dev",
     "style:fix": "pnpm run prettier:fix && pnpm run eslint:fix",
     "prettier:fix": "pnpm exec prettier **/*.{ts,d.ts} --write",
     "eslint:fix": "pnpm exec eslint --fix ."
