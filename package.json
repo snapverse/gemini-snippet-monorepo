@@ -14,7 +14,7 @@
   "scripts": {
     "build": "echo \"Extension just build successfully ✨\"",
     "sandbox:run": "pnpm --filter sandbox dev",
-    "api:run": "pnpm --filter api dev",
+    "api:run": "pnpm --filter api start",
     "style:fix": "pnpm run prettier:fix && pnpm run eslint:fix",
     "prettier:fix": "pnpm exec prettier **/*.{ts,d.ts} --write",
     "eslint:fix": "pnpm exec eslint --fix ."
@@ -26,6 +26,7 @@
     "ext-chrome-monorepo": "link:",
     "typescript-eslint": "^7.16.0",
     "globals": "^15.8.0",
-    "prettier": "^3.3.3"
+    "prettier": "^3.3.3",
+    "typescript": "5.2.2"
   }
 }
