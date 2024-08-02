@@ -4,7 +4,9 @@
   "description": "",
   "main": "app.ts",
   "scripts": {
-    "develop": "node app.ts",
+    "ts:node": "ts-node -r tsconfig-paths/register -P ../tsconfig.json",
+    "start": "pnpm run ts:node --import ts-node/esm ./app.ts ",
+    "db:migrate": "pnpm run ts:node ./database/scripts/migrate.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -12,6 +14,15 @@
   "license": "ISC",
   "dependencies": {
     "@google/generative-ai": "^0.16.0",
-    "fastify": "^4.28.1"
+    "fastify": "^4.28.1",
+    "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "@swc/core": "^1.7.4",
+    "@swc/helpers": "^0.5.12",
+    "dotenv": "^16.4.5",
+    "regenerator-runtime": "^0.14.1",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0"
   }
 }
