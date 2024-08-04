@@ -5,14 +5,18 @@
   "main": "app.ts",
   "scripts": {
     "ts:node": "ts-node -r tsconfig-paths/register -P ../tsconfig.json",
-    "start": "pnpm run ts:node --import ts-node/esm ./app.ts ",
+    "start": "pnpm run ts:node app.ts",
+    "develop": "nodemon -r tsconfig-paths/register -P ../tsconfig.json app.ts",
     "db:migrate": "pnpm run ts:node ./database/scripts/migrate.ts",
+    "db:wipe": "pnpm run ts:node ./database/scripts/wipe.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@fastify/swagger": "^8.15.0",
+    "@fastify/swagger-ui": "^4.0.1",
     "@google/generative-ai": "^0.16.0",
     "fastify": "^4.28.1",
     "sqlite3": "^5.1.7"
@@ -21,6 +25,7 @@
     "@swc/core": "^1.7.4",
     "@swc/helpers": "^0.5.12",
     "dotenv": "^16.4.5",
+    "nodemon": "^3.1.4",
     "regenerator-runtime": "^0.14.1",
     "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0"
