@@ -11,11 +11,3 @@ declare namespace GoogleSearchEngine {
     description: string;
   }
 }
-
-declare namespace NodeJS {
-  interface ProcessEnv {
-    NODE_ENV: 'development' | 'production' | 'testing' | 'staging';
-    DB_MEMORY: string;
-    GEMINI_API_KEY?: string;
-  }
-}

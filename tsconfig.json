@@ -1,11 +1,11 @@
 {
   "compilerOptions": {
-    "target": "es6",
+    "target": "esnext",
     "module": "commonjs",
     "moduleResolution": "node",
     "lib": ["ESNext", "DOM", "DOM.Iterable", "WebWorker"],
     "types": ["./declarations.d.ts", "chrome", "node"],
-    "typeRoots": ["./node_modules/@types", "./types", "./"],
+    "typeRoots": ["./node_modules/@types", "./api/types", "./"],
     "resolveJsonModule": true,
     "emitDecoratorMetadata": true,
     "esModuleInterop": true,
@@ -21,6 +21,6 @@
   "ts-node": {
     "swc": true,
     "transpileOnly": true,
-    "files": true,
+    "files": true
   }
 }
