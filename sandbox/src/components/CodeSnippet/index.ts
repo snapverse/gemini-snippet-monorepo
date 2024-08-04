@@ -40,7 +40,7 @@ export default class CodeSnippet {
 
   private createExplanation(props: { rawHTML: string }) {
     const explanation = document.createElement('p');
-    explanation.innerHTML = props.rawHTML;
+    explanation.textContent = props.rawHTML;
 
     return explanation;
   }
@@ -74,12 +74,15 @@ export default class CodeSnippet {
   }
 
   private createCode(props: { code: string; language: string }) {
-    const code = document.createElement('pre');
-    code.setAttribute('role', 'code');
-    code.classList.add(`language-${props.language.toLowerCase()}`);
-    code.innerHTML = /*html*/ `<code>${props.code}</code>`;
+    const pre = document.createElement('pre');
+    const code = document.createElement('code');
 
-    return code;
+    pre.setAttribute('role', 'code');
+    pre.classList.add(`language-${props.language.toLowerCase()}`);
+    code.textContent = props.code;
+    pre.appendChild(code);
+
+    return pre;
   }
 
   private createVotes(props: { votes: number }) {

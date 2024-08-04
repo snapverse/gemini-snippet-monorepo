@@ -4,11 +4,11 @@ import './main.css';
 
 new GUI();
 
-const LONG_LANG = 'TypeScript';
-const CODE_SNIPPET = `console.log("Hello, world"); // Log a string
-let name = "Sandra"
-console.log("Name: ", name); // Log a variable`;
-const TEXT = `En TypeScript, console.log funciona de la misma manera que en JavaScript. Es una función que se utiliza para depurar y registrar información en la consola de desarrollo del navegador. <br><br> Así es como se usa:`;
+const LONG_LANG = 'cpp';
+const CODE_SNIPPET =
+  '#include <iostream>\n\nint main() {\n  std::cout << "Hello, world!" << std::endl;\n  return 0;\n}\n';
+const TEXT =
+  'This is a basic C++ program that prints "Hello, world!" to the console.\n\n* `#include <iostream>` brings in the standard input/output library, allowing the program to interact with the user.\n* `int main()` is the starting point of the program.\n* `std::cout << "Hello, world!" << std::endl;` displays the message on the screen.\n* `return 0;` indicates successful program execution. \n';
 const SOURCE = 'gemini';
 
 new CodeSnippet(

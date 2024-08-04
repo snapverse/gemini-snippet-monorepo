@@ -69,6 +69,7 @@
   font-style: normal;
   font-family: sans-serif;
   line-height: normal;
+  text-transform: capitalize;
 
   color: #c4c7c5;
 }
