@@ -1,23 +1,31 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
+  "$schema": "https://json.schemastore.org/chrome-manifest",
   "manifest_version": 3,
   "name": "Gemini Snippet on Search",
   "author": "simonvillafanee3@gmail.com",
-  "description": "Base Level Extension",
+  "description": "The easiest way to find your code solutions in Google Chrome",
   "version": "1.0",
   "content_scripts": [
     {
-
+      "js": [
+        "/content_scripts/google_search/index.js",
+        "/components/CodeSnippet.js"
+      ],
+      "css": ["/content_scripts/google_search/index.css"],
+      "matches": ["https://*.google.com/search"],
+      "include_globs": ["https://???.google.com/search/*"],
+      "run_at": "document_end"
     }
   ],
   "action": {
-    "default_popup": "/popup.html",
+    "default_title": "Gemini Snippet on Search",
+    "default_popup": "/default_popup/index.html",
     "default_icon": {
-      "16": "/assets/favicon.webp",
-      "32": "/assets/favicon.webp",
-      "48": "/assets/favicon.webp",
-      "128": "/assets/favicon.webp"
+      "16": "/favicon.webp",
+      "32": "/favicon.webp",
+      "48": "/favicon.webp",
+      "128": "/favicon.webp"
     }
   },
-  "permissions": ["scripting", "activeTab"]
+  "permissions": ["scripting", "activeTab", "clipboardWrite", "audio"]
 }
