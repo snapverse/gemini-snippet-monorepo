@@ -1,4 +1,4 @@
-export default function (length: number = 22): string {
+export default function (length: number = 12): string {
   const chars =
     'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 

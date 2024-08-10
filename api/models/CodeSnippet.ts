@@ -25,7 +25,7 @@ export default class {
     language,
     source = 'gemini',
     votes = 0
-  }: M.CodeSnippet) {
+  }: Omit<M.CodeSnippet, 'id'>) {
     return new Promise<boolean>((resolve, reject) => {
       DB.run(
         `INSERT INTO ${this.tableName} (explanation, code, source, language, votes, createdAt, updatedAt)

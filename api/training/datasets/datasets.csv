@@ -1,0 +1,674 @@
+ID,INPUT,OUTPUT
+17A58EA1,google_research: console.log in typescript,"code_snippet: console.log(""Hello World!"");
+"
+1551E738,google_research: How do I create a function in Python?,"code_snippet: def add_numbers(a, b):
+    return a + b
+
+# Example usage
+result = add_numbers(3, 5)
+print(result)  # code_snippet: 8
+"
+5168AB8F,google_research: How to sort an array in JavaScript?,"code_snippet: function sortArray(arr) {
+    return arr.sort((a, b) => a - b);
+}
+
+// Example usage
+const result = sortArray([5, 3, 8, 1, 2]);
+console.log(result);  // code_snippet: [1, 2, 3, 5, 8]"
+493D119D,google_research: What's the syntax for a while loop in Java?,"code_snippet: public class Main {
+    public static void main(String[] args) {
+        int i = 1;
+        while (i <= 5) {
+            System.out.println(i);
+            i++;
+        }
+    }
+}
+"
+1DD5F304,google_research: How to read a JSON file in Python?,"code_snippet: import json
+
+def read_json(file_path):
+    with open(file_path, 'r') as file:
+        data = json.load(file)
+    return data
+
+# Example usage
+file_path = 'data.json'
+data = read_json(file_path)
+print(data)
+"
+B7CD0751,google_research: How to declare a constant in C++?,"code_snippet: #include <iostream>
+
+int main() {
+    const int MAX_VALUE = 100;
+    
+    std::cout << ""The maximum value is: "" << MAX_VALUE << std::endl;
+    
+    return 0;
+}
+"
+17F7EBEA,google_research: What is the way to handle exceptions in JavaScript?,"code_snippet: function divide(a, b) {
+    try {
+        if (b === 0) {
+            throw new Error(""Cannot divide by zero"");
+        }
+        return a / b;
+    } catch (error) {
+        console.error(error.message);
+        return null;
+    }
+}
+
+// Example usage
+const result = divide(10, 0);
+console.log(result);  // code_snippet: null
+"
+E8EBDEB9,google_research: How can I concatenate strings in Python?,"code_snippet: def concatenate_strings(str1, str2):
+    return str1 + str2
+
+# Example usage
+result = concatenate_strings(""Hello, "", ""world!"")
+print(result)  # code_snippet: Hello, world!
+"
+E7EE5285,google_research: How do I implement a linked list in C++?,"code_snippet: #include <iostream>
+
+struct Node {
+    int data;
+    Node* next;
+};
+
+class LinkedList {
+public:
+    LinkedList() : head(nullptr) {}
+
+    void append(int value) {
+        Node* newNode = new Node{value, nullptr};
+        if (head == nullptr) {
+            head = newNode;
+        } else {
+            Node* temp = head;
+            while (temp->next != nullptr) {
+                temp = temp->next;
+            }
+            temp->next = newNode;
+        }
+    }
+
+    void display() const {
+        Node* temp = head;
+        while (temp != nullptr) {
+            std::cout << temp->data << "" "";
+            temp = temp->next;
+        }
+        std::cout << std::endl;
+    }
+
+    ~LinkedList() {
+        while (head != nullptr) {
+            Node* temp = head;
+            head = head->next;
+            delete temp;
+        }
+    }
+
+private:
+    Node* head;
+};
+
+// Example usage
+int main() {
+    LinkedList list;
+    list.append(1);
+    list.append(2);
+    list.append(3);
+    list.display();  // code_snippet: 1 2 3
+
+    return 0;
+}
+"
+0806910A,google_research: How to connect to a MySQL database in Java?,"code_snippet: import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class MySQLConnection {
+    public static void main(String[] args) {
+        String url = ""jdbc:mysql://localhost:3306/mydatabase"";
+        String username = ""root"";
+        String password = ""password"";
+
+        try {
+            Connection connection = DriverManager.getConnection(url, username, password);
+            System.out.println(""Connected to the database!"");
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}
+"
+37E3939E,google_research: How to create an object in JavaScript?,"code_snippet: // Creating an object using object literal notation
+const person = {
+    firstName: ""John"",
+    lastName: ""Doe"",
+    age: 30,
+    greet: function() {
+        console.log(""Hello, my name is "" + this.firstName + "" "" + this.lastName);
+    }
+};
+
+// Accessing object properties
+console.log(person.firstName); // Output: John
+console.log(person.lastName);  // Output: Doe
+console.log(person.age);       // Output: 30
+
+// Calling an object method
+person.greet(); // Output: Hello, my name is John Doe
+"
+5702231A,google_research: How to use async/await in Python?,"code_snippet: import asyncio
+
+async def say_hello():
+    print(""Hello"")
+    await asyncio.sleep(1)
+    print(""World"")
+
+async def main():
+    await say_hello()
+
+# Running the main function
+asyncio.run(main())
+"
+3DA3345F,google_research: What's the syntax for a switch statement in Java?,"code_snippet: public class Main {
+    public static void main(String[] args) {
+        int day = 3;
+        String dayName;
+
+        switch (day) {
+            case 1:
+                dayName = ""Sunday"";
+                break;
+            case 2:
+                dayName = ""Monday"";
+                break;
+            case 3:
+                dayName = ""Tuesday"";
+                break;
+            case 4:
+                dayName = ""Wednesday"";
+                break;
+            case 5:
+                dayName = ""Thursday"";
+                break;
+            case 6:
+                dayName = ""Friday"";
+                break;
+            case 7:
+                dayName = ""Saturday"";
+                break;
+            default:
+                dayName = ""Invalid day"";
+                break;
+        }
+
+        System.out.println(""The day is: "" + dayName);
+    }
+}
+"
+988B6CF3,google_research: How do I parse XML in C++?,"code_snippet: #include <iostream>
+#include ""tinyxml2.h""
+
+using namespace tinyxml2;
+
+int main() {
+    XMLDocument doc;
+    XMLError eResult = doc.LoadFile(""example.xml"");
+    if (eResult != XML_SUCCESS) {
+        std::cerr << ""Error loading file: "" << eResult << std::endl;
+        return eResult;
+    }
+
+    XMLNode *root = doc.FirstChild();
+    if (root == nullptr) {
+        std::cerr << ""Error finding root element."" << std::endl;
+        return XML_ERROR_FILE_READ_ERROR;
+    }
+
+    XMLElement *element = root->FirstChildElement(""ExampleElement"");
+    if (element == nullptr) {
+        std::cerr << ""Error finding ExampleElement."" << std::endl;
+        return XML_ERROR_PARSING_ELEMENT;
+    }
+
+    const char *text = element->GetText();
+    if (text == nullptr) {
+        std::cerr << ""Error getting text from ExampleElement."" << std::endl;
+        return XML_ERROR_PARSING_TEXT;
+    }
+
+    std::cout << ""ExampleElement text: "" << text << std::endl;
+
+    return XML_SUCCESS;
+}
+"
+BAA8E06E,google_research: How to handle file input/output in Python?,"code_snippet: def write_to_file(file_path, text):
+    with open(file_path, 'w') as file:
+        file.write(text)
+
+def read_from_file(file_path):
+    with open(file_path, 'r') as file:
+        content = file.read()
+    return content
+
+def append_to_file(file_path, text):
+    with open(file_path, 'a') as file:
+        file.write(text)
+
+def read_lines(file_path):
+    with open(file_path, 'r') as file:
+        lines = file.readlines()
+    return lines
+
+# Example usage
+file_path = 'example.txt'
+
+# Write to the file
+write_to_file(file_path, 'Hello, world!')
+
+# Read from the file
+content = read_from_file(file_path)
+print('Read from file:', content)  # Output: Hello, world!
+
+# Append to the file
+append_to_file(file_path, '\nAppend this text.')
+
+# Read lines from the file
+lines = read_lines(file_path)
+print('Read lines from file:')
+for line in lines:
+    print(line.strip())
+
+"
+00425788,google_research: What's the way to implement a queue in JavaScript?,"code_snippet: class Queue {
+    constructor() {
+        this.items = [];
+    }
+
+    // Add an element to the queue
+    enqueue(element) {
+        this.items.push(element);
+    }
+
+    // Remove an element from the queue
+    dequeue() {
+        if (this.isEmpty()) {
+            return ""Queue is empty"";
+        }
+        return this.items.shift();
+    }
+
+    // Check if the queue is empty
+    isEmpty() {
+        return this.items.length === 0;
+    }
+
+    // View the first element in the queue
+    front() {
+        if (this.isEmpty()) {
+            return ""Queue is empty"";
+        }
+        return this.items[0];
+    }
+
+    // View the size of the queue
+    size() {
+        return this.items.length;
+    }
+
+    // Print the queue
+    printQueue() {
+        return this.items.join("" "");
+    }
+}
+
+// Example usage
+const queue = new Queue();
+
+queue.enqueue(1);
+queue.enqueue(2);
+queue.enqueue(3);
+
+console.log(queue.printQueue()); // Output: 1 2 3
+console.log(queue.front()); // Output: 1
+
+queue.dequeue();
+console.log(queue.printQueue()); // Output: 2 3
+console.log(queue.size()); // Output: 2
+console.log(queue.isEmpty()); // Output: false
+
+queue.dequeue();
+queue.dequeue();
+console.log(queue.isEmpty()); // Output: true
+"
+6DC70D23,google_research: How do I create a dictionary in Python?,"code_snippet: # Creating a dictionary
+my_dict = {
+    ""name"": ""Alice"",
+    ""age"": 25,
+    ""city"": ""New York""
+}
+
+# Accessing values
+print(""Name:"", my_dict[""name""])  # Output: Name: Alice
+print(""Age:"", my_dict[""age""])    # Output: Age: 25
+print(""City:"", my_dict[""city""])  # Output: City: New York
+
+# Adding a new key-value pair
+my_dict[""email""] = ""alice@example.com""
+print(""Email:"", my_dict[""email""])  # Output: Email: alice@example.com
+
+# Updating a value
+my_dict[""age""] = 26
+print(""Updated Age:"", my_dict[""age""])  # Output: Updated Age: 26
+
+# Deleting a key-value pair
+del my_dict[""city""]
+print(""Dictionary after deletion:"", my_dict)  # Output: Dictionary after deletion: {'name': 'Alice', 'age': 26, 'email': 'alice@example.com'}
+
+# Iterating through the dictionary
+for key, value in my_dict.items():
+    print(key, "":"", value)
+# Output:
+# name : Alice
+# age : 26
+# email : alice@example.com
+
+# Checking if a key exists
+if ""name"" in my_dict:
+    print(""Name is present in the dictionary"")
+
+# Getting a value with a default if the key doesn't exist
+print(my_dict.get(""address"", ""Address not found""))  # Output: Address not found
+"
+5DFAA498,google_research: How to manipulate the DOM in JavaScript?,"code_snippet: <!DOCTYPE html>
+<html lang=""en"">
+<head>
+    <meta charset=""UTF-8"">
+    <meta name=""viewport"" content=""width=device-width, initial-scale=1.0"">
+    <title>DOM Manipulation</title>
+</head>
+<body>
+    <h1 id=""heading"">Hello, World!</h1>
+    <p id=""paragraph"">This is a paragraph.</p>
+    <button id=""changeTextButton"">Change Text</button>
+    <button id=""addElementButton"">Add Element</button>
+    <button id=""removeElementButton"">Remove Element</button>
+
+    <script>
+        // Change text of an element
+        document.getElementById('changeTextButton').addEventListener('click', function() {
+            document.getElementById('heading').textContent = 'Text Changed!';
+            document.getElementById('paragraph').textContent = 'The paragraph text has been updated.';
+        });
+
+        // Add a new element
+        document.getElementById('addElementButton').addEventListener('click', function() {
+            const newElement = document.createElement('div');
+            newElement.textContent = 'Newly added element!';
+            document.body.appendChild(newElement);
+        });
+
+        // Remove an element
+        document.getElementById('removeElementButton').addEventListener('click', function() {
+            const elementToRemove = document.querySelector('div');
+            if (elementToRemove) {
+                elementToRemove.remove();
+            } else {
+                alert('No element to remove.');
+            }
+        });
+    </script>
+</body>
+</html>
+"
+0FFF6930,google_research: How to implement polymorphism in Java?,"code_snippet: // Base class
+class Animal {
+    // Method to be overridden
+    void makeSound() {
+        System.out.println(""Some sound"");
+    }
+}
+
+// Derived class
+class Dog extends Animal {
+    // Overriding the method
+    @Override
+    void makeSound() {
+        System.out.println(""Bark"");
+    }
+}
+
+// Another derived class
+class Cat extends Animal {
+    // Overriding the method
+    @Override
+    void makeSound() {
+        System.out.println(""Meow"");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Animal myDog = new Dog();
+        Animal myCat = new Cat();
+
+        // Polymorphism in action
+        myDog.makeSound(); // Output: Bark
+        myCat.makeSound(); // Output: Meow
+    }
+}
+"
+8A59927E,google_research: How do I use decorators in Python?,"code_snippet: # Define a decorator
+def my_decorator(func):
+    def wrapper():
+        print(""Something is happening before the function is called."")
+        func()
+        print(""Something is happening after the function is called."")
+    return wrapper
+
+# Use the decorator
+@my_decorator
+def say_hello():
+    print(""Hello!"")
+
+# Call the decorated function
+say_hello()
+
+# Output:
+# Something is happening before the function is called.
+# Hello!
+# Something is happening after the function is called.
+"
+B9168A66,google_research: How to perform a quicksort in C++?,"code_snippet: #include <iostream>
+#include <vector>
+
+using namespace std;
+
+// Function to perform the partition operation
+int partition(vector<int>& arr, int low, int high) {
+    int pivot = arr[high];  // Choosing the rightmost element as pivot
+    int i = low - 1;        // Index of the smaller element
+
+    for (int j = low; j < high; j++) {
+        if (arr[j] <= pivot) {
+            i++;
+            swap(arr[i], arr[j]);  // Swap if the element is smaller than or equal to the pivot
+        }
+    }
+    swap(arr[i + 1], arr[high]);  // Swap the pivot element with the element at i+1
+    return i + 1;
+}
+
+// Recursive QuickSort function
+void quickSort(vector<int>& arr, int low, int high) {
+    if (low < high) {
+        int pi = partition(arr, low, high);  // Partitioning index
+        quickSort(arr, low, pi - 1);         // Recursively sort elements before partition
+        quickSort(arr, pi + 1, high);        // Recursively sort elements after partition
+    }
+}
+
+// Helper function to print the array
+void printArray(const vector<int>& arr) {
+    for (int num : arr) {
+        cout << num << "" "";
+    }
+    cout << endl;
+}
+
+int main() {
+    vector<int> arr = {10, 7, 8, 9, 1, 5};
+    int n = arr.size();
+
+    cout << ""Original array: "";
+    printArray(arr);
+
+    quickSort(arr, 0, n - 1);
+
+    cout << ""Sorted array: "";
+    printArray(arr);
+
+    return 0;
+}
+"
+67B8F113,google_research: ¿Cómo declaro una variable en Python?,"code_snippet: # Declarar una variable entera
+edad = 25
+
+# Declarar una variable de punto flotante
+altura = 1.75
+
+# Declarar una variable de cadena de texto
+nombre = ""Ana""
+
+# Declarar una variable booleana
+es_estudiante = True
+
+# Declarar una variable lista
+frutas = [""manzana"", ""banana"", ""cereza""]
+
+# Declarar una variable diccionario
+persona = {
+    ""nombre"": ""Carlos"",
+    ""edad"": 30
+}
+
+# Imprimir las variables
+print(""Edad:"", edad)               # Output: Edad: 25
+print(""Altura:"", altura)           # Output: Altura: 1.75
+print(""Nombre:"", nombre)           # Output: Nombre: Ana
+print(""Es estudiante:"", es_estudiante) # Output: Es estudiante: True
+print(""Frutas:"", frutas)           # Output: Frutas: ['manzana', 'banana', 'cereza']
+print(""Persona:"", persona)         # Output: Persona: {'nombre': 'Carlos', 'edad': 30}
+"
+430F9012,google_research: ¿Cómo crear una función en JavaScript?,"code_snippet: // Declaración de una función
+function saludar(nombre) {
+    return `Hola, ${nombre}!`;
+}
+
+// Uso de la función
+console.log(saludar(""Ana"")); // Output: Hola, Ana!
+"
+B7AD7EC0,google_research: ¿Cómo imprimo una variable en Java?,"code_snippet: System.out.print(""Nombre: "" + nombre); // Output: Nombre: Ana (sin salto de línea)
+System.out.print(""Edad: "" + edad);    // Continuará en la misma línea
+"
+3D53AC3C,google_research: ¿Cómo escribir un bucle for en C++?,"code_snippet: #include <iostream>
+
+int main() {
+    // Bucle for básico
+    for (int i = 0; i < 5; i++) {
+        std::cout << ""Iteración: "" << i << std::endl;
+    }
+    return 0;
+}
+"
+4D179A28,google_research: ¿Cómo leo un archivo en Python?,"code_snippet: # Abrir el archivo en modo de lectura
+with open('archivo.txt', 'r') as file:
+    # Leer todo el contenido del archivo
+    contenido = file.read()
+
+# Imprimir el contenido del archivo
+print(contenido)
+"
+B414C624,google_research: ¿Cómo crear una clase en Java?,"code_snippet: // Definición de la clase
+public class Persona {
+    // Atributos (propiedades) de la clase
+    private String nombre;
+    private int edad;
+
+    // Constructor de la clase
+    public Persona(String nombre, int edad) {
+        this.nombre = nombre;
+        this.edad = edad;
+    }
+
+    // Método para obtener el nombre
+    public String getNombre() {
+        return nombre;
+    }
+
+    // Método para establecer el nombre
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    // Método para obtener la edad
+    public int getEdad() {
+        return edad;
+    }
+
+    // Método para establecer la edad
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
+
+    // Método para mostrar la información de la persona
+    public void mostrarInformacion() {
+        System.out.println(""Nombre: "" + nombre);
+        System.out.println(""Edad: "" + edad);
+    }
+}
+
+// Clase principal para ejecutar el programa
+public class Main {
+    public static void main(String[] args) {
+        // Crear un objeto de la clase Persona
+        Persona persona1 = new Persona(""Ana"", 30);
+
+        // Usar los métodos de la clase Persona
+        persona1.mostrarInformacion();
+
+        // Cambiar la edad y mostrar la información nuevamente
+        persona1.setEdad(31);
+        persona1.mostrarInformacion();
+    }
+}
+"
+D182A43C,google_research: ¿Cómo manejo excepciones en Python?,"code_snippet: try:
+    # Código que puede causar una excepción
+    numero = int(input(""Introduce un número: ""))
+    resultado = 10 / numero
+    print(f""El resultado es: {resultado}"")
+
+except ValueError:
+    # Manejo de excepción si el input no es un número válido
+    print(""Error: Debes introducir un número entero."")
+
+except ZeroDivisionError:
+    # Manejo de excepción si se intenta dividir por cero
+    print(""Error: No se puede dividir por cero."")
+
+except Exception as e:
+    # Manejo de cualquier otra excepción
+    print(f""Ha ocurrido un error: {e}"")
+
+finally:
+    # Código que se ejecuta siempre, haya ocurrido una excepción o no
+    print(""Operación completada."")
+"
