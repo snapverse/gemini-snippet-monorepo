@@ -12,7 +12,7 @@
     "node": ">=20.0.0 "
   },
   "scripts": {
-    "build": "echo \"Extension just build successfully ✨\"",
+    "build:chrome": "pnpm --filter ext-chrome build",
     "sandbox:run": "pnpm --filter sandbox dev",
     "api:run": "pnpm --filter api start",
     "style:fix": "pnpm run prettier:fix && pnpm run eslint:fix",
