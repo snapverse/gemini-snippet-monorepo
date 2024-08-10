@@ -4,7 +4,7 @@ import { exec } from 'node:child_process';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 
-const start_at = performance.now();
+const startAt = performance.now();
 
 let step = 0;
 const TOTAL_STEPS = '6';
@@ -151,8 +151,8 @@ const main = async () => {
       buildSpecificList({ list: ['manifest.json', 'public'], dist: distUrl })
     ]);
 
-    const end_at = performance.now();
-    const buildTime = (end_at - start_at) / 1000;
+    const endAt = performance.now();
+    const buildTime = (endAt - startAt) / 1000;
 
     console.info(`\nDone in ${buildTime.toFixed(3)}s ✨`);
     process.exit(0);
