@@ -24,7 +24,10 @@ export default class {
       count_tokens: 999,
       content: {
         finish_reason: 'stop',
-        code_snippet: codeSnippet,
+        code_snippet: codeSnippet.substring(
+          codeSnippet.indexOf('\n') + 1,
+          codeSnippet.lastIndexOf('\n') - 1
+        ),
         language: language,
         explanation: explanation
       }

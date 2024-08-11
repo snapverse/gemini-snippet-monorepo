@@ -134,3 +134,9 @@ pnpm-lock.yaml
 
 # vscode
 .vscode/
+
+# MacOS
+.DS_Store
+
+# SQLite
+**/*.sqlite

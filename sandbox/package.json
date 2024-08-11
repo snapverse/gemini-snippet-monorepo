@@ -10,7 +10,6 @@
   },
   "devDependencies": {
     "@tweakpane/core": "2.0.4",
-    "@types/chrome": "^0.0.268",
     "@types/dat.gui": "^0.7.13",
     "@types/node": "^20.14.10",
     "tweakpane": "4.0.4",
