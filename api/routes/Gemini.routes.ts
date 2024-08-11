@@ -55,5 +55,54 @@ export default function (
     GeminiController.generateCodeSnippet
   );
 
+  fastify.get(
+    '/isCodeRelatedResearch',
+    {
+      schema: {
+        tags: ['gemini'],
+        description:
+          "A trained Gemini model attempts to respond with 'Yes' or 'No' based on the 'research' parameter of the endpoint, determining if the research topic is related to code.",
+        summary: 'Detect if the research if code related',
+        querystring: {
+          type: 'object',
+          required: ['research'],
+          additionalProperties: false,
+          properties: {
+            research: {
+              type: 'string',
+              description:
+                'Google Search query (?q=XXXX) used to determine if the research topic is related to code.'
+            }
+          }
+        },
+        response: {
+          200: {
+            description: 'Yes',
+            content: {
+              'text/plain': {
+                schema: {
+                  examples: ['Yes', 'No'],
+                  type: 'string'
+                }
+              }
+            }
+          },
+          204: {
+            description: 'No',
+            content: {
+              'text/plain': {
+                schema: {
+                  examples: [''],
+                  type: 'string'
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    GeminiController.isCodeRelatedResearch
+  );
+
   done();
 }

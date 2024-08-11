@@ -26,7 +26,7 @@ export default {
         }
       ],
       generationConfig: {
-        temperature: 1.25,
+        temperature: 0.85,
         topP: 0.95,
         topK: 64,
         maxOutputTokens: 8192,
@@ -65,10 +65,90 @@ export default {
 
     return result.response.text().trim();
   },
-  async explanation(codeSnippet: string) {
-    const prompt = `Make a pretty short explanation of this code: ${codeSnippet}`;
+  async explanation(props: { prompt: string; codeSnippet: string }) {
+    const prompt = `The user provided the following prompt to generate a code snippet:
+    * Code Snippet: ${props.codeSnippet}
+    * User's Prompt: ${props.prompt}
+
+    Please explain how to accomplish the task described by the user, based on the provided code snippet.`;
 
     const result = await gemini.generateContent(prompt);
+
+    return result.response.text().trim();
+  },
+  async isCodeRelatedResearch(prompt: string) {
+    const history = [
+      {
+        role: 'user',
+        parts: [
+          {
+            text: "Your purpose is to respond only with 'Yes' or 'No' based on whether the research topic is related to fields like IoT, Programming, Development, DevOps, Data Science, Machine Learning, Artificial Intelligence, etc. If the topic is related to any other field, such as Geography, Social Media, Animals, or anything outside the mentioned domains, respond with 'No'. Provide no other explanations or details."
+          },
+          { text: 'How to optimize SQL queries for large databases' }
+        ]
+      },
+      {
+        role: 'model',
+        parts: [{ text: 'Yes' }]
+      },
+      {
+        role: 'user',
+        parts: [{ text: 'Difference between GET and POST methods in HTTP' }]
+      },
+      {
+        role: 'model',
+        parts: [{ text: 'Yes' }]
+      },
+      {
+        role: 'user',
+        parts: [{ text: 'Impact of climate change on polar bear populations' }]
+      },
+      {
+        role: 'model',
+        parts: [{ text: 'No' }]
+      },
+      {
+        role: 'user',
+        parts: [
+          { text: 'Best practices for asynchronous programming in JavaScript' }
+        ]
+      },
+      {
+        role: 'model',
+        parts: [{ text: 'Yes' }]
+      },
+      {
+        role: 'user',
+        parts: [
+          { text: 'History and cultural significance of Día de los Muertos' }
+        ]
+      },
+      {
+        role: 'model',
+        parts: [{ text: 'No' }]
+      },
+      {
+        role: 'user',
+        parts: [{ text: 'How to optimize SQL queries for large databases' }]
+      },
+      {
+        role: 'model',
+        parts: [{ text: 'Yes \n' }]
+      }
+    ];
+
+    const chatSession = gemini.startChat({
+      history,
+      generationConfig: {
+        temperature: 1,
+        topP: 0.95,
+        topK: 64,
+        maxOutputTokens: 8192,
+        responseMimeType: 'text/plain'
+      }
+    });
+
+    const result = await chatSession.sendMessage(prompt);
 
     return result.response.text().trim();
   }

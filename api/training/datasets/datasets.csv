@@ -1,21 +1,27 @@
 ID,INPUT,OUTPUT
-17A58EA1,google_research: console.log in typescript,"code_snippet: console.log(""Hello World!"");
+38FF1A20,google_research: console.log in typescript,"code_snippet: ```typescript
+console.log(""Hello World!"");
+```
 "
-1551E738,google_research: How do I create a function in Python?,"code_snippet: def add_numbers(a, b):
+8D238493,google_research: How do I create a function in Python?,"code_snippet: ```python
+def add_numbers(a, b):
     return a + b
 
 # Example usage
 result = add_numbers(3, 5)
 print(result)  # code_snippet: 8
-"
-5168AB8F,google_research: How to sort an array in JavaScript?,"code_snippet: function sortArray(arr) {
+```"
+2C49BA14,google_research: How to sort an array in JavaScript?,"code_snippet: ```javascript
+function sortArray(arr) {
     return arr.sort((a, b) => a - b);
 }
 
 // Example usage
 const result = sortArray([5, 3, 8, 1, 2]);
-console.log(result);  // code_snippet: [1, 2, 3, 5, 8]"
-493D119D,google_research: What's the syntax for a while loop in Java?,"code_snippet: public class Main {
+console.log(result);  // code_snippet: [1, 2, 3, 5, 8]
+```"
+BF7599B8,google_research: What's the syntax for a while loop in Java?,"code_snippet: ```java
+public class Main {
     public static void main(String[] args) {
         int i = 1;
         while (i <= 5) {
@@ -24,8 +30,9 @@ console.log(result);  // code_snippet: [1, 2, 3, 5, 8]"
         }
     }
 }
-"
-1DD5F304,google_research: How to read a JSON file in Python?,"code_snippet: import json
+``` "
+D9BA662D,google_research: How to read a JSON file in Python?,"code_snippet: ```python
+import json
 
 def read_json(file_path):
     with open(file_path, 'r') as file:
@@ -36,8 +43,9 @@ def read_json(file_path):
 file_path = 'data.json'
 data = read_json(file_path)
 print(data)
-"
-B7CD0751,google_research: How to declare a constant in C++?,"code_snippet: #include <iostream>
+```"
+F3999306,google_research: How to declare a constant in C++?,"code_snippet: ```cpp
+#include <iostream>
 
 int main() {
     const int MAX_VALUE = 100;
@@ -46,8 +54,9 @@ int main() {
     
     return 0;
 }
-"
-17F7EBEA,google_research: What is the way to handle exceptions in JavaScript?,"code_snippet: function divide(a, b) {
+```"
+C8C58D77,google_research: What is the way to handle exceptions in JavaScript?,"code_snippet: ```javascript
+function divide(a, b) {
     try {
         if (b === 0) {
             throw new Error(""Cannot divide by zero"");
@@ -62,15 +71,17 @@ int main() {
 // Example usage
 const result = divide(10, 0);
 console.log(result);  // code_snippet: null
-"
-E8EBDEB9,google_research: How can I concatenate strings in Python?,"code_snippet: def concatenate_strings(str1, str2):
+```"
+A8B876ED,google_research: How can I concatenate strings in Python?,"code_snippet: ```python
+def concatenate_strings(str1, str2):
     return str1 + str2
 
 # Example usage
 result = concatenate_strings(""Hello, "", ""world!"")
 print(result)  # code_snippet: Hello, world!
-"
-E7EE5285,google_research: How do I implement a linked list in C++?,"code_snippet: #include <iostream>
+```"
+8A78302B,google_research: How do I implement a linked list in C++?,"code_snippet: ```cpp
+#include <iostream>
 
 struct Node {
     int data;
@@ -125,8 +136,9 @@ int main() {
 
     return 0;
 }
-"
-0806910A,google_research: How to connect to a MySQL database in Java?,"code_snippet: import java.sql.Connection;
+```"
+C0F8377F,google_research: How to connect to a MySQL database in Java?,"code_snippet: ```java
+import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
@@ -145,8 +157,9 @@ public class MySQLConnection {
         }
     }
 }
-"
-37E3939E,google_research: How to create an object in JavaScript?,"code_snippet: // Creating an object using object literal notation
+```"
+EB52FCF2,google_research: How to create an object in JavaScript?,"code_snippet: ```javascript
+// Creating an object using object literal notation
 const person = {
     firstName: ""John"",
     lastName: ""Doe"",
@@ -163,8 +176,9 @@ console.log(person.age);       // Output: 30
 
 // Calling an object method
 person.greet(); // Output: Hello, my name is John Doe
-"
-5702231A,google_research: How to use async/await in Python?,"code_snippet: import asyncio
+```"
+A6F44CD5,google_research: How to use async/await in Python?,"code_snippet: ```python
+import asyncio
 
 async def say_hello():
     print(""Hello"")
@@ -176,8 +190,9 @@ async def main():
 
 # Running the main function
 asyncio.run(main())
-"
-3DA3345F,google_research: What's the syntax for a switch statement in Java?,"code_snippet: public class Main {
+```"
+973E7B64,google_research: What's the syntax for a switch statement in Java?,"code_snippet: ```java
+public class Main {
     public static void main(String[] args) {
         int day = 3;
         String dayName;
@@ -212,8 +227,9 @@ asyncio.run(main())
         System.out.println(""The day is: "" + dayName);
     }
 }
-"
-988B6CF3,google_research: How do I parse XML in C++?,"code_snippet: #include <iostream>
+```"
+F21610D8,google_research: How do I parse XML in C++?,"code_snippet: ```cpp
+#include <iostream>
 #include ""tinyxml2.h""
 
 using namespace tinyxml2;
@@ -248,8 +264,9 @@ int main() {
 
     return XML_SUCCESS;
 }
-"
-BAA8E06E,google_research: How to handle file input/output in Python?,"code_snippet: def write_to_file(file_path, text):
+```"
+FCD1FBAB,google_research: How to handle file input/output in Python?,"code_snippet: ```python
+def write_to_file(file_path, text):
     with open(file_path, 'w') as file:
         file.write(text)
 
@@ -285,9 +302,9 @@ lines = read_lines(file_path)
 print('Read lines from file:')
 for line in lines:
     print(line.strip())
-
-"
-00425788,google_research: What's the way to implement a queue in JavaScript?,"code_snippet: class Queue {
+```"
+777FAC12,google_research: What's the way to implement a queue in JavaScript?,"code_snippet: ```javascript
+class Queue {
     constructor() {
         this.items = [];
     }
@@ -347,8 +364,9 @@ console.log(queue.isEmpty()); // Output: false
 queue.dequeue();
 queue.dequeue();
 console.log(queue.isEmpty()); // Output: true
-"
-6DC70D23,google_research: How do I create a dictionary in Python?,"code_snippet: # Creating a dictionary
+```"
+6A8E3B71,google_research: How do I create a dictionary in Python?,"code_snippet: ```python
+# Creating a dictionary
 my_dict = {
     ""name"": ""Alice"",
     ""age"": 25,
@@ -386,8 +404,9 @@ if ""name"" in my_dict:
 
 # Getting a value with a default if the key doesn't exist
 print(my_dict.get(""address"", ""Address not found""))  # Output: Address not found
-"
-5DFAA498,google_research: How to manipulate the DOM in JavaScript?,"code_snippet: <!DOCTYPE html>
+```"
+5D15B237,google_research: How to manipulate the DOM in JavaScript?,"code_snippet: ```html
+<!DOCTYPE html>
 <html lang=""en"">
 <head>
     <meta charset=""UTF-8"">
@@ -427,8 +446,9 @@ print(my_dict.get(""address"", ""Address not found""))  # Output: Address not fo
     </script>
 </body>
 </html>
-"
-0FFF6930,google_research: How to implement polymorphism in Java?,"code_snippet: // Base class
+```"
+B547F80A,google_research: How to implement polymorphism in Java?,"code_snippet: ```java
+// Base class
 class Animal {
     // Method to be overridden
     void makeSound() {
@@ -464,8 +484,9 @@ public class Main {
         myCat.makeSound(); // Output: Meow
     }
 }
-"
-8A59927E,google_research: How do I use decorators in Python?,"code_snippet: # Define a decorator
+```"
+8860B57C,google_research: How do I use decorators in Python?,"code_snippet: ```python
+# Define a decorator
 def my_decorator(func):
     def wrapper():
         print(""Something is happening before the function is called."")
@@ -485,8 +506,9 @@ say_hello()
 # Something is happening before the function is called.
 # Hello!
 # Something is happening after the function is called.
-"
-B9168A66,google_research: How to perform a quicksort in C++?,"code_snippet: #include <iostream>
+```"
+F20DDE2A,google_research: How to perform a quicksort in C++?,"code_snippet: ```cpp
+#include <iostream>
 #include <vector>
 
 using namespace std;
@@ -537,8 +559,9 @@ int main() {
 
     return 0;
 }
-"
-67B8F113,google_research: ¿Cómo declaro una variable en Python?,"code_snippet: # Declarar una variable entera
+```"
+94C17038,google_research: ¿Cómo declaro una variable en Python?,"code_snippet: ```python
+# Declarar una variable entera
 edad = 25
 
 # Declarar una variable de punto flotante
@@ -566,19 +589,24 @@ print(""Nombre:"", nombre)           # Output: Nombre: Ana
 print(""Es estudiante:"", es_estudiante) # Output: Es estudiante: True
 print(""Frutas:"", frutas)           # Output: Frutas: ['manzana', 'banana', 'cereza']
 print(""Persona:"", persona)         # Output: Persona: {'nombre': 'Carlos', 'edad': 30}
-"
-430F9012,google_research: ¿Cómo crear una función en JavaScript?,"code_snippet: // Declaración de una función
+```"
+62988E23,google_research: ¿Cómo crear una función en JavaScript?,"code_snippet: ```javascript
+// Declaración de una función
 function saludar(nombre) {
     return `Hola, ${nombre}!`;
 }
 
 // Uso de la función
-console.log(saludar(""Ana"")); // Output: Hola, Ana!
-"
-B7AD7EC0,google_research: ¿Cómo imprimo una variable en Java?,"code_snippet: System.out.print(""Nombre: "" + nombre); // Output: Nombre: Ana (sin salto de línea)
+console.log(saludar(""Sandra"")); // Output: Hola, Sandra!
+```"
+2107501E,google_research: ¿Cómo imprimo una variable en Java?,"code_snippet: ```java
+String nombre = ""Sandra"";
+int edad = 21;
+System.out.print(""Nombre: "" + nombre); // Output: Nombre: Sandra (sin salto de línea)
 System.out.print(""Edad: "" + edad);    // Continuará en la misma línea
-"
-3D53AC3C,google_research: ¿Cómo escribir un bucle for en C++?,"code_snippet: #include <iostream>
+```"
+090AA6A6,google_research: ¿Cómo escribir un bucle for en C++?,"code_snippet: ```cpp
+#include <iostream>
 
 int main() {
     // Bucle for básico
@@ -587,16 +615,18 @@ int main() {
     }
     return 0;
 }
-"
-4D179A28,google_research: ¿Cómo leo un archivo en Python?,"code_snippet: # Abrir el archivo en modo de lectura
+```"
+95227E85,google_research: ¿Cómo leo un archivo en Python?,"code_snippet: ```python
+# Abrir el archivo en modo de lectura
 with open('archivo.txt', 'r') as file:
     # Leer todo el contenido del archivo
     contenido = file.read()
 
 # Imprimir el contenido del archivo
 print(contenido)
-"
-B414C624,google_research: ¿Cómo crear una clase en Java?,"code_snippet: // Definición de la clase
+```"
+09B20A4D,google_research: ¿Cómo crear una clase en Java?,"code_snippet: ```java
+// Definición de la clase
 public class Persona {
     // Atributos (propiedades) de la clase
     private String nombre;
@@ -649,8 +679,9 @@ public class Main {
         persona1.mostrarInformacion();
     }
 }
-"
-D182A43C,google_research: ¿Cómo manejo excepciones en Python?,"code_snippet: try:
+```"
+AAA7B136,google_research: ¿Cómo manejo excepciones en Python?,"code_snippet: ```python
+try:
     # Código que puede causar una excepción
     numero = int(input(""Introduce un número: ""))
     resultado = 10 / numero
@@ -671,4 +702,4 @@ except Exception as e:
 finally:
     # Código que se ejecuta siempre, haya ocurrido una excepción o no
     print(""Operación completada."")
-"
+```"

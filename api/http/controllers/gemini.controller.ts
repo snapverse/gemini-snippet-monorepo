@@ -13,7 +13,7 @@ export default class {
     const codeSnippet = await gen.codeSnippet(req.query.prompt);
 
     const [explanation, language] = await Promise.all([
-      gen.explanation(codeSnippet),
+      gen.explanation({ prompt: req.query.prompt, codeSnippet }),
       gen.programmingLanguage(codeSnippet)
     ]);
 
@@ -34,9 +34,25 @@ export default class {
     });
 
     CodeSnippet.insert({
+      prompt: req.query.prompt,
       code: codeSnippet,
       explanation: explanation,
       language: language
-    });
+    }).catch(console.error);
+  }
+
+  public static async isCodeRelatedResearch(
+    req: FastifyRequest<{ Querystring: { research: string } }>,
+    reply: FastifyReply
+  ) {
+    const text = await gen.isCodeRelatedResearch(req.query.research);
+
+    reply.type('text/plain');
+
+    if (text.trim() === 'Yes') {
+      return reply.code(200).send('Yes');
+    } else {
+      return reply.code(204).send('No'); // fastify seems to delete this if 204
+    }
   }
 }

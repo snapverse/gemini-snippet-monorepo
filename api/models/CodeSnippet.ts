@@ -23,18 +23,20 @@ export default class {
     explanation,
     code,
     language,
+    prompt,
     source = 'gemini',
     votes = 0
   }: Omit<M.CodeSnippet, 'id'>) {
     return new Promise<boolean>((resolve, reject) => {
       DB.run(
-        `INSERT INTO ${this.tableName} (explanation, code, source, language, votes, createdAt, updatedAt)
-				VALUES ($explanation, $code, $source, $language, $votes, $createdAt, $updatedAt)
+        `INSERT INTO ${this.tableName} (explanation, code, source, language, prompt, votes, createdAt, updatedAt)
+				VALUES ($explanation, $code, $source, $language, $prompt, $votes, $createdAt, $updatedAt)
 				`,
         {
           $explanation: explanation,
           $code: code,
           $source: source,
+          $prompt: prompt,
           $language: language,
           $votes: votes,
           $createdAt: Date.now(),

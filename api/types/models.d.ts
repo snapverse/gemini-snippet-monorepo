@@ -4,6 +4,7 @@ declare namespace M {
     explanation: string;
     language: string;
     code: string;
+    prompt: string;
     votes?: number;
     source?: Source;
     createdAt?: TimeStamp;
