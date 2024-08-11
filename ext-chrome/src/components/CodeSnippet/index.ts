@@ -1,16 +1,17 @@
-import './stylesheet.css';
-
 interface SnippetInit {
   explanation: string;
   code: string;
   language: string;
-  source: string;
+  source?: string;
 }
 
-export default class {
-  public constructor(init: SnippetInit, root: string) {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+class CodeSnippet {
+  element: HTMLElement = null;
+
+  public constructor(init: SnippetInit) {
     const component = this.onInit(init);
-    document.querySelector(root).prepend(component);
+    this.element = component;
   }
 
   private onInit({
@@ -30,12 +31,22 @@ export default class {
     container.classList.add('gem_ChromeSnippetContainer');
 
     [
+      this.createAvatar(),
       this.createExplanation({ rawHTML: explanation }),
       this.createSnippet({ code, language, source }),
       this.createActions({ engine })
     ].forEach((child) => container.appendChild(child));
 
     return container;
+  }
+
+  private createAvatar() {
+    const avatar = document.createElement('img');
+    avatar.setAttribute('height', '32');
+    avatar.setAttribute('width', '32');
+    avatar.src = chrome.runtime.getURL('gemini-colored.svg');
+
+    return avatar;
   }
 
   private createExplanation(props: { rawHTML: string }) {
@@ -77,9 +88,10 @@ export default class {
     const pre = document.createElement('pre');
     const code = document.createElement('code');
 
-    pre.setAttribute('role', 'code');
-    pre.classList.add(`language-${props.language.toLowerCase()}`);
     code.textContent = props.code;
+    code.classList.add(`language-${props.language.toLowerCase()}`);
+
+    pre.setAttribute('role', 'code');
     pre.appendChild(code);
 
     return pre;
@@ -90,9 +102,9 @@ export default class {
     votes.setAttribute('role', 'votes');
 
     votes.innerHTML = /*html*/ `
-    <span class="material-symbols-outlined">keyboard_arrow_up</span>
+    <span class="material-symbols-custom">keyboard_arrow_up</span>
     <i>${props.votes}</i>
-    <span class="material-symbols-outlined">keyboard_arrow_down</span>
+    <span class="material-symbols-custom">keyboard_arrow_down</span>
     `;
 
     return votes;
@@ -103,7 +115,7 @@ export default class {
     footer.setAttribute('role', 'footer');
     footer.innerHTML = /*html*/ `
 				<i>Fuente <a href="https://gemini.google.com/app" target="_blank">${props.source}</a></i>
-				<span class="material-symbols-outlined">content_copy</span>
+				<span class="material-symbols-custom">content_copy</span>
 			`;
 
     return footer;
@@ -114,10 +126,10 @@ export default class {
     actions.setAttribute('role', 'actions');
 
     actions.innerHTML = /*html*/ `
-		<span class="material-symbols-outlined">volume_up</span>
-		<span class="material-symbols-outlined">restart_alt</span>
+		<span class="material-symbols-custom">volume_up</span>
+		<span class="material-symbols-custom">restart_alt</span>
 		<span class="gem_ChromeSnippetEngine">
-			<img src="/gemini-outlined.svg" width="22" height="22" />
+      <img width="22" height="22" src="${chrome.runtime.getURL('gemini-outlined.svg')}"  />
 			${props.engine}
 		</span>
 		`;

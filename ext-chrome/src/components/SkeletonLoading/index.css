@@ -1,0 +1,99 @@
+.gem_SkeletonLoading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  row-gap: 18px;
+}
+
+.gem_SkeletonLoading > img {
+  animation-name: spin;
+  animation-duration: 2250ms;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.gem_SkeletonLoadingWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: normal;
+  justify-content: normal;
+  row-gap: 12px;
+  width: 100%;
+}
+
+.gem_SkeletonLoadingWrapper > div {
+  position: relative;
+  width: 100%;
+  height: 18px;
+  border-radius: 7.25px;
+  overflow-x: hidden;
+  background-color: #2d2c31;
+}
+
+.gem_SkeletonLoadingWrapper > div::before {
+  content: ' ';
+  width: 100%;
+  height: inherit;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+
+  background-image: linear-gradient(
+    90deg,
+    rgba(217, 181, 234, 0) 0%,
+    rgba(91, 96, 102, 1) 22%,
+    rgba(72, 125, 215, 1) 50%,
+    rgba(91, 96, 102, 1) 78%,
+    rgba(217, 181, 234, 0) 100%
+  );
+  background-size: 200% 100%;
+  background-position-x: 0%;
+
+  animation-name: skeleton;
+  animation-timing-function: linear;
+  animation-duration: 2000ms;
+  animation-iteration-count: infinite;
+}
+
+.gem_SkeletonLoadingWrapper > div:nth-child(1)::before {
+  animation-delay: 200ms;
+}
+
+.gem_SkeletonLoadingWrapper > div:nth-child(2)::before {
+  animation-delay: 600ms;
+}
+
+.gem_SkeletonLoadingWrapper > div:nth-child(3)::before {
+  animation-delay: 1200ms;
+}
+
+.gem_SkeletonLoadingWrapper > div:nth-child(3)::before {
+  animation-delay: 1400ms;
+}
+
+.gem_SkeletonLoadingWrapper > div:nth-child(3) {
+  width: 85%;
+}
+
+.gem_SkeletonLoadingWrapper > div:nth-child(4) {
+  width: 75%;
+}
+
+@keyframes skeleton {
+  100% {
+    background-position-x: -200%;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(0.85);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}

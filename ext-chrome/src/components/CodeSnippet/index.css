@@ -1,15 +1,3 @@
-* {
-  margin: 0px;
-  padding: 0px;
-  box-sizing: border-box;
-}
-
-.material-symbols-outlined {
-  color: #c4c7c5;
-  font-weight: 400;
-  font-size: 20px;
-}
-
 .gem_ChromeSnippetContainer {
   width: 641px;
   position: relative;
@@ -26,17 +14,13 @@
   margin-bottom: 20px;
 }
 
-.gem_ChromeSnippetContainer > p::before {
-  content: ' ';
+.gem_ChromeSnippetContainer > img {
   display: block;
-  width: 28px;
-  height: 28px;
-  position: absolute;
-  top: 0px;
-  left: -48px;
-
-  background-image: url(https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg);
+  margin-left: -4px;
+  margin-bottom: 18px;
   background-size: contain;
+  max-width: max-content;
+  max-height: max-content;
 }
 
 .gem_ChromeSnippet {
@@ -60,7 +44,7 @@
   padding-bottom: 8px;
   padding-left: 15px;
 
-  background: #27292b;
+  background-color: #27292b;
 }
 
 .gem_ChromeSnippet div[role='header'] strong {
@@ -101,7 +85,7 @@
   line-height: normal;
 
   color: white;
-  background: #27292b;
+  background-color: #27292b;
 }
 
 .gem_ChromeSnippet div[role='footer'] {
@@ -121,7 +105,7 @@
   padding-left: 15px;
   padding-right: 15px;
 
-  background: #27292b;
+  background-color: #27292b;
 }
 
 .gem_ChromeSnippet div[role='footer'] i {
@@ -203,5 +187,5 @@
   text-transform: capitalize;
 
   color: #c4c7c5;
-  background: rgba(196, 199, 197, 0.1);
+  background-color: rgba(196 199 197 / 10%);
 }

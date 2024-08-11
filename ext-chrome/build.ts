@@ -7,7 +7,7 @@ import path from 'node:path';
 const startAt = performance.now();
 
 let step = 0;
-const TOTAL_STEPS = '6';
+const TOTAL_STEPS = '7';
 
 function* info(...messages: string[]) {
   while (true) {
@@ -19,6 +19,7 @@ function* info(...messages: string[]) {
 
 enum AcceptedExt {
   TypeScript = '.ts',
+  JavaScript = '.js',
   HTML = '.html',
   CSS = '.css'
 }
@@ -74,7 +75,30 @@ const buildSpecificList = async (options: { list: string[]; dist: string }) => {
           })
         );
       } else {
-        await fs.copyFile(targetFileOrDir, path.join('dist', base));
+        switch (targetFileOrDir) {
+          case 'manifest.json': {
+            info('Processing manifest.json').next();
+
+            const manifest = await fs.readFile(targetFileOrDir, {
+              encoding: 'utf-8'
+            });
+
+            const manifestJson = { ...JSON.parse(manifest) };
+            delete manifestJson.$schema;
+
+            await fs.writeFile(
+              path.join('dist', 'manifest.json'),
+              JSON.stringify(manifestJson, null, 4)
+            );
+
+            break;
+          }
+          default: {
+            await fs.copyFile(targetFileOrDir, path.join('dist', base));
+
+            break;
+          }
+        }
       }
     })
   );
@@ -100,10 +124,26 @@ const buildFileExtensions = async (options: {
         case AcceptedExt.TypeScript: {
           await new Promise((resolve, reject) => {
             exec(
-              `pnpm exec tsc ${targetFile} --outDir ${outDir}`,
-              (err, stdout) => (err ? reject(err) : resolve(stdout))
+              `pnpm exec tsc ${targetFile} \\
+                --outDir ${outDir} \\
+                --skipLibCheck \\
+                --noEmitOnError \\
+                --noImplicitAny false`,
+              (err, stdout) => {
+                if (err) {
+                  console.error(err, stdout);
+                  reject(err);
+                } else {
+                  resolve(stdout);
+                }
+              }
             );
           });
+
+          break;
+        }
+        case AcceptedExt.JavaScript: {
+          await fs.copyFile(targetFile, outFile);
 
           break;
         }

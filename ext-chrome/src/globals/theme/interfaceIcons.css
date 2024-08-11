@@ -1,0 +1,59 @@
+/* fallback */
+@font-face {
+  font-family: 'Material Symbols Outlined';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/materialsymbolsoutlined/v203/kJF1BvYX7BgnkSrUwT8OhrdQw4oELdPIeeII9v6oDMzByHX9rA6RzaxHMPdY43zj-jCxv3fzvRNU22ZXGJpEpjC_1v-p_4MrImHCIJIZrDCvHOejbd5zrDAt.woff2)
+    format('woff2');
+}
+
+.material-symbols-custom {
+  font-family: 'Material Symbols Outlined';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  white-space: nowrap;
+  word-wrap: normal;
+
+  display: inline-block;
+  position: relative;
+  z-index: 9;
+  cursor: pointer;
+  color: #c4c7c5;
+
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+
+.material-symbols-custom:hover::after {
+  opacity: 1;
+}
+
+.material-symbols-custom:active::after {
+  transform: translate(-50%, -50%) scale(0.8);
+}
+
+.material-symbols-custom::after {
+  content: ' ';
+  display: block;
+  z-index: -1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  background-color: rgb(98 98 98 / 25%);
+  opacity: 0;
+
+  will-change: scale;
+  transition:
+    transform 120ms,
+    opacity 100ms;
+}

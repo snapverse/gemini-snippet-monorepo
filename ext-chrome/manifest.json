@@ -4,28 +4,48 @@
   "name": "Gemini Snippet on Search",
   "author": "simonvillafanee3@gmail.com",
   "description": "The easiest way to find your code solutions in Google Chrome",
-  "version": "1.0",
-  "content_scripts": [
-    {
-      "js": [
-        "/content_scripts/google_search/index.js",
-        "/components/CodeSnippet.js"
-      ],
-      "css": ["/content_scripts/google_search/index.css"],
-      "matches": ["https://*.google.com/search"],
-      "include_globs": ["https://???.google.com/search/*"],
-      "run_at": "document_end"
-    }
-  ],
+  "version": "0.1.0",
   "action": {
     "default_title": "Gemini Snippet on Search",
-    "default_popup": "/default_popup/index.html",
+    "default_popup": "/action/defaultPopup/index.html",
     "default_icon": {
-      "16": "/favicon.webp",
-      "32": "/favicon.webp",
-      "48": "/favicon.webp",
-      "128": "/favicon.webp"
+      "16": "/favicon.png",
+      "32": "/favicon.png",
+      "48": "/favicon.png",
+      "128": "/favicon.png"
     }
   },
-  "permissions": ["scripting", "activeTab", "clipboardWrite", "audio"]
+
+  "background": {
+    "service_worker": "serviceWorker.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "run_at": "document_end",
+      "matches": ["*://www.google.com/search?q=*"],
+      "js": [
+        "/components/SkeletonLoading/index.js",
+        "/components/CodeSnippet/index.js",
+        "/contentScripts/googleSearch/index.js",
+        "/addons/prism/prism.js"
+      ],
+      "css": [
+        "/addons/prism/theme.css",
+        "/globals/theme/reset.css",
+        "/components/SkeletonLoading/index.css",
+        "/components/CodeSnippet/index.css",
+        "/contentScripts/googleSearch/index.css"
+      ]
+    }
+  ],
+  "permissions": ["scripting", "activeTab", "clipboardWrite"],
+  "host_permissions": ["https://*/*", "http://*/*"],
+  "web_accessible_resources": [
+    {
+      "matches": ["*://*/*"],
+      "use_dynamic_url": true,
+      "resources": ["gemini-colored.svg", "gemini-outlined.svg"]
+    }
+  ]
 }

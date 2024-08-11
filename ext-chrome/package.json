@@ -11,8 +11,11 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "add": "^2.0.6",
+    "chrome-types": "^0.1.297",
     "clean-css": "^5.3.3",
     "html-minifier": "^4.0.0",
-    "ts-node": "^10.9.2"
+    "ts-node": "^10.9.2",
+    "typescript-transpile-only": "^0.0.4"
   }
 }
