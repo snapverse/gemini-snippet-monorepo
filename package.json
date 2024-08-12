@@ -26,7 +26,6 @@
     "ext-chrome-monorepo": "link:",
     "globals": "^15.9.0",
     "prettier": "^3.3.3",
-    "typescript": "5.2.2",
     "typescript-eslint": "^7.18.0"
   }
 }
