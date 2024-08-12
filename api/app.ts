@@ -1,6 +1,6 @@
+import cors from '@fastify/cors';
 import swagger from '@fastify/swagger';
 import swaggerUI from '@fastify/swagger-ui';
-import cors from '@fastify/cors';
 import Fastify from 'fastify';
 
 import env from './env';
@@ -16,7 +16,7 @@ import { SWAGGER_OPTIONS, SWAGGER_UI_OPTIONS } from './swagger/options';
 
   await fastify.register(cors, {
     methods: ['*'],
-    origin: ['*']
+    origin: '*'
   });
 
   fastify.register(DefaultRoutes);
@@ -27,8 +27,8 @@ import { SWAGGER_OPTIONS, SWAGGER_UI_OPTIONS } from './swagger/options';
 
   fastify.listen(
     {
-      port: Number(env.SERVER_PORT) ?? 5000,
-      host: env.SERVER_HOST ?? '127.0.0.1'
+      port: Number(env.SERVER_PORT) ?? 3000,
+      host: env.SERVER_HOST ?? '0.0.0.0'
     },
     (reason) => {
       if (reason) {

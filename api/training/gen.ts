@@ -208,14 +208,6 @@ export default {
 
     const result = await chatSession.sendMessage(prompt.trim());
 
-    console.log(
-      prompt.trim(),
-      '\n',
-      '###############',
-      '\n',
-      result.response.text().trim()
-    );
-
     return result.response.text().trim();
   }
 };

@@ -4,8 +4,13 @@
     "module": "commonjs",
     "moduleResolution": "node",
     "lib": ["ES6", "DOM", "DOM.Iterable", "WebWorker"],
-    "types": ["../declarations.d.ts", "chrome", "node"],
-    "typeRoots": ["./node_modules/@types", "./api/types", "./"],
+    "types": ["declarations.d.ts", "chrome", "node"],
+    "typeRoots": [
+      "./",
+      "./node_modules/@types",
+      "../node_modules/@types",
+      "../"
+    ],
     "baseUrl": ".",
     "paths": {
       "@/*": ["./*"]

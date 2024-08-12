@@ -4,12 +4,13 @@
   "description": "",
   "main": "app.ts",
   "scripts": {
-    "serve": "npm run ts:node app.ts",
+    "build": "tsc && tsc-alias",
+    "serve": "node dist/app.js",
     "start": "pnpm run ts:node app.ts",
-    "develop": "nodemon -r tsconfig-paths/register -P ../tsconfig.json app.ts",
+    "develop": "nodemon -r tsconfig-paths/register app.ts",
     "db:migrate": "pnpm run ts:node ./database/scripts/migrate.ts",
     "db:wipe": "pnpm run ts:node ./database/scripts/wipe.ts",
-    "ts:node": "ts-node -r tsconfig-paths/register -P ../tsconfig.json",
+    "ts:node": "ts-node -r tsconfig-paths/register",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -31,6 +32,7 @@
     "nodemon": "^3.1.4",
     "regenerator-runtime": "^0.14.1",
     "ts-node": "^10.9.2",
+    "tsc-alias": "^1.8.10",
     "tsconfig-paths": "^4.2.0"
   }
 }
