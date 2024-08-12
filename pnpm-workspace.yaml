@@ -1,4 +1,4 @@
 packages:
-  - 'sandbox'
   - 'api'
+  - 'e2e-chrome'
   - 'ext-chrome'

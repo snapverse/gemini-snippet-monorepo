@@ -13,8 +13,8 @@
   },
   "scripts": {
     "build:chrome": "pnpm --filter ext-chrome build",
-    "sandbox:run": "pnpm --filter sandbox dev",
     "api:run": "pnpm --filter api start",
+    "api:develop": "pnpm --filter api develop",
     "style:fix": "pnpm run prettier:fix && pnpm run eslint:fix",
     "prettier:fix": "pnpm exec prettier **/*.{ts,d.ts} --write",
     "eslint:fix": "pnpm exec eslint --fix ."

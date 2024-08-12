@@ -13,7 +13,7 @@
     "sourceMap": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./api/*", "./sandbox/*", "./ext-chrome/*"]
+      "@/*": ["./api/*", "e2e-chrome/*", "./ext-chrome/*"]
     }
   },
   "include": ["**/*.ts", "**/*.d.ts"],
