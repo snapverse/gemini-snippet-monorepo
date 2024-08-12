@@ -1,4 +1,4 @@
-// your chrome API use cases (not include DOM manipulation here)
+// your chrome API use cases (do not include DOM manipulation here)
 
 chrome.runtime.onMessage.addListener((message, sender) => {
   if (message.action === 'injectInterfaceIcons') {

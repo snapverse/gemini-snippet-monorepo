@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 interface SnippetInit {
   explanation: string;
   code: string;
@@ -32,7 +33,7 @@ class CodeSnippet {
 
     [
       this.createAvatar(),
-      this.createExplanation({ rawHTML: explanation }),
+      this.createExplanation({ text: explanation }),
       this.createSnippet({ code, language, source }),
       this.createActions({ engine })
     ].forEach((child) => container.appendChild(child));
@@ -49,9 +50,13 @@ class CodeSnippet {
     return avatar;
   }
 
-  private createExplanation(props: { rawHTML: string }) {
+  private createExplanation(props: { text: string }) {
+    // @ts-ignore
+    const converter = new showdown.Converter();
+    const html = converter.makeHtml(props.text);
+
     const explanation = document.createElement('p');
-    explanation.textContent = props.rawHTML;
+    explanation.innerHTML = html;
 
     return explanation;
   }
@@ -102,9 +107,9 @@ class CodeSnippet {
     votes.setAttribute('role', 'votes');
 
     votes.innerHTML = /*html*/ `
-    <span class="material-symbols-custom">keyboard_arrow_up</span>
+    <span class="material-symbols-custom" id="gem__upvote">keyboard_arrow_up</span>
     <i>${props.votes}</i>
-    <span class="material-symbols-custom">keyboard_arrow_down</span>
+    <span class="material-symbols-custom" id="gem__downvote">keyboard_arrow_down</span>
     `;
 
     return votes;
@@ -115,7 +120,7 @@ class CodeSnippet {
     footer.setAttribute('role', 'footer');
     footer.innerHTML = /*html*/ `
 				<i>Fuente <a href="https://gemini.google.com/app" target="_blank">${props.source}</a></i>
-				<span class="material-symbols-custom">content_copy</span>
+				<span class="material-symbols-custom" id="gem__copy">content_copy</span>
 			`;
 
     return footer;
@@ -126,8 +131,8 @@ class CodeSnippet {
     actions.setAttribute('role', 'actions');
 
     actions.innerHTML = /*html*/ `
-		<span class="material-symbols-custom">volume_up</span>
-		<span class="material-symbols-custom">restart_alt</span>
+		<span class="material-symbols-custom" id="gem__speech">volume_up</span>
+		<span class="material-symbols-custom" id="gem__restart">restart_alt</span>
 		<span class="gem_ChromeSnippetEngine">
       <img width="22" height="22" src="${chrome.runtime.getURL('gemini-outlined.svg')}"  />
 			${props.engine}
@@ -135,5 +140,75 @@ class CodeSnippet {
 		`;
 
     return actions;
+  }
+
+  public setCopyEvent(text: string) {
+    const element = document.querySelector<HTMLElement>('#gem__copy');
+
+    if (element) {
+      element.onclick = () => {
+        element.textContent = 'check';
+        window.navigator.clipboard.writeText(text);
+
+        setTimeout(() => {
+          element.textContent = 'content_copy';
+        }, 800);
+      };
+    }
+  }
+
+  public setRestartEvent() {
+    const element = document.querySelector<HTMLElement>('#gem__restart');
+
+    if (element) {
+      element.onclick = () => {
+        // @ts-ignore
+        genCodeSnippet({
+          root: document.querySelector('.gem_ChromeSnippetRoot')
+        });
+      };
+    }
+  }
+
+  public setSpeechEvent(text: string) {
+    const element = document.querySelector<HTMLElement>('#gem__speech');
+
+    if (element) {
+      chrome.runtime.sendMessage({ action: 'playSpeech', payload: { text } });
+
+      const onPlay = () => {
+        element.textContent = 'pause';
+        const utterance = new SpeechSynthesisUtterance(text);
+
+        utterance.lang = 'en-US';
+        utterance.volume = 1;
+
+
+        window.speechSynthesis.speak(utterance);
+
+        utterance.onstart = () => {
+          // ignore
+        };
+
+        utterance.onend = () => {
+          const element = document.querySelector('#gem__speech');
+          if (element) element.textContent = 'volume_up';
+        };
+      };
+
+      const onPause = () => {
+        element.textContent = 'volume_up';
+        window.speechSynthesis.pause();
+        window.speechSynthesis.cancel();
+      };
+
+      element.onclick = () => {
+        if (element.textContent === 'pause') {
+          onPause();
+        } else {
+          onPlay();
+        }
+      };
+    }
   }
 }

@@ -15,7 +15,12 @@
       "128": "/favicon.png"
     }
   },
-
+  "icons": {
+    "16": "/favicon.png",
+    "32": "/favicon.png",
+    "48": "/favicon.png",
+    "128": "/favicon.png"
+  },
   "background": {
     "service_worker": "serviceWorker.js",
     "type": "module"
@@ -23,12 +28,13 @@
   "content_scripts": [
     {
       "run_at": "document_end",
-      "matches": ["*://www.google.com/search?q=*"],
+      "matches": ["*://www.google.com/search?*"],
       "js": [
-        "/components/SkeletonLoading/index.js",
         "/components/CodeSnippet/index.js",
-        "/contentScripts/googleSearch/index.js",
-        "/addons/prism/prism.js"
+        "/components/SkeletonLoading/index.js",
+        "/addons/showdown/showdown.min.js",
+        "/scripts/genCodeSnippet.js",
+        "/contentScripts/googleSearch/index.js"
       ],
       "css": [
         "/addons/prism/theme.css",
@@ -39,7 +45,7 @@
       ]
     }
   ],
-  "permissions": ["scripting", "activeTab", "clipboardWrite"],
+  "permissions": ["scripting", "activeTab", "clipboardWrite", "alarms"],
   "host_permissions": ["https://*/*", "http://*/*"],
   "web_accessible_resources": [
     {
