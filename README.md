@@ -1,2 +1,2 @@
-# Gemi Slice
+# Gemi Slice ✨
 ...
