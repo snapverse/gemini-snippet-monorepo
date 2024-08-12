@@ -15,8 +15,8 @@ import { SWAGGER_OPTIONS, SWAGGER_UI_OPTIONS } from './swagger/options';
   await fastify.register(swaggerUI, SWAGGER_UI_OPTIONS);
 
   await fastify.register(cors, {
-    methods: ['GET', 'POST', 'PATCH', 'OPTIONS'],
-    origin: ['http://127.0.0.1:5000', 'https://www.google.com/search']
+    methods: ['*'],
+    origin: ['*']
   });
 
   fastify.register(DefaultRoutes);

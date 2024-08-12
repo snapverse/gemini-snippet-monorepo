@@ -7,7 +7,7 @@ export default function (
   _options: FastifyPluginOptions,
   done: (err?: Error) => void
 ) {
-  fastify.get(
+  fastify.post(
     '/generateCodeSnippet',
     {
       schema: {
@@ -15,7 +15,7 @@ export default function (
         description:
           'Creation of a code snippet with the help of a fine-tuned Gemini AI model',
         summary: 'Create code snippet with Gemini AI',
-        querystring: {
+        body: {
           type: 'object',
           required: ['prompt'],
           additionalProperties: false,
@@ -55,7 +55,7 @@ export default function (
     GeminiController.generateCodeSnippet
   );
 
-  fastify.get(
+  fastify.patch(
     '/isCodeRelatedResearch',
     {
       schema: {
@@ -63,7 +63,7 @@ export default function (
         description:
           "A trained Gemini model attempts to respond with 'Yes' or 'No' based on the 'research' parameter of the endpoint, determining if the research topic is related to code.",
         summary: 'Detect if the research if code related',
-        querystring: {
+        body: {
           type: 'object',
           required: ['research'],
           additionalProperties: false,

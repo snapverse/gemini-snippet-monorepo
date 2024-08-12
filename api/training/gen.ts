@@ -38,30 +38,72 @@ export default {
     return result.response.text();
   },
   async programmingLanguage(codeSnippet: string) {
-    const parts = [
-      { text: 'Return ONLY the language used from this code snippet.' },
+    const history = [
       {
-        text: 'code_snippet: #include <iostream> int main() { std::cout << "Hello, World!" << std::endl; return 0; }'
+        role: 'user',
+        parts: [
+          {
+            text: 'Return ONLY the language used of this code snippet, priorize the chars versions of the languages.'
+          },
+          {
+            text: '```cpp\n#include <iostream> int main() { std::cout << "Hello, World!" << std::endl; return 0; }\n```'
+          }
+        ]
       },
-      { text: 'language: C++' },
       {
-        text: 'code_snippet: def greet(name):\n    print(f"Hello, {name}! Welcome to Python programming.")\n\n# Example usage:\ngreet("Sandra")'
+        role: 'model',
+        parts: [{ text: 'Cpp' }]
       },
-      { text: 'language: Python' },
       {
-        text: 'code_snippet: function add(a: number, b: number): number {\n    return a + b;\n}\n\n// Example usage:\nconst result = add(5, 3);\nconsole.log(`The sum is ${result}`);'
+        role: 'user',
+        parts: [
+          {
+            text: '```python\ndef greet(name):\n    print(f"Hello, {name}! Welcome to Python programming.")\n\n# Example usage:\ngreet("Sandra")\n```'
+          }
+        ]
       },
-      { text: 'language: TypeScript' },
       {
-        text: "code_snippet: document.getElementById('myElement').textContent = 'Hello, JavaScript!';"
+        role: 'model',
+        parts: [{ text: 'Python' }]
       },
-      { text: 'language: JavaScript' },
-      { text: `code_snippet: ${codeSnippet}` }
+      {
+        role: 'user',
+        parts: [
+          {
+            text: '```typescript\nfunction add(a: number, b: number): number {\n    return a + b;\n}\n\n// Example usage:\nconst result = add(5, 3);\nconsole.log(`The sum is ${result}`);\n```'
+          }
+        ]
+      },
+      {
+        role: 'model',
+        parts: [{ text: 'TypeScript' }]
+      },
+      {
+        role: 'user',
+        parts: [
+          {
+            text: '```javascript\ndocument.getElementById("myElement").textContent = "Hello, JavaScript!";\n```'
+          }
+        ]
+      },
+      {
+        role: 'model',
+        parts: [{ text: 'JavaScript' }]
+      }
     ];
 
-    const result = await gemini.generateContent({
-      contents: [{ role: 'user', parts }]
+    const chatSession = gemini.startChat({
+      history,
+      generationConfig: {
+        temperature: 1,
+        topP: 0.95,
+        topK: 64,
+        maxOutputTokens: 256,
+        responseMimeType: 'text/plain'
+      }
     });
+
+    const result = await chatSession.sendMessage(codeSnippet);
 
     return result.response.text().trim();
   },
@@ -70,7 +112,7 @@ export default {
     * Code Snippet: ${props.codeSnippet}
     * User's Prompt: ${props.prompt}
 
-    Please explain how to accomplish the task described by the user, based on the provided code snippet.`;
+    Please explain how to accomplish the task described by the user, based on the provided code snippet in 200 characters or less.`;
 
     const result = await gemini.generateContent(prompt);
 
@@ -82,7 +124,7 @@ export default {
         role: 'user',
         parts: [
           {
-            text: "Your purpose is to respond only with 'Yes' or 'No' based on whether the research topic is related to fields like IoT, Programming, Development, DevOps, Data Science, Machine Learning, Artificial Intelligence, etc. If the topic is related to any other field, such as Geography, Social Media, Animals, or anything outside the mentioned domains, respond with 'No'. Provide no other explanations or details."
+            text: "Your purpose is to respond ONLY WITH 'Yes' or 'No' based on whether the research topic is related to fields like IoT, Programming, Algorithms, Development, DevOps, Data Science, Machine Learning, Artificial Intelligence..."
           },
           { text: 'How to optimize SQL queries for large databases' }
         ]
@@ -94,6 +136,22 @@ export default {
       {
         role: 'user',
         parts: [{ text: 'Difference between GET and POST methods in HTTP' }]
+      },
+      {
+        role: 'model',
+        parts: [{ text: 'Yes' }]
+      },
+      {
+        role: 'user',
+        parts: [{ text: 'How to print a variable in C++' }]
+      },
+      {
+        role: 'model',
+        parts: [{ text: 'Yes' }]
+      },
+      {
+        role: 'user',
+        parts: [{ text: '¿Cómo hacer una autentificación con Google?' }]
       },
       {
         role: 'model',
@@ -133,22 +191,30 @@ export default {
       },
       {
         role: 'model',
-        parts: [{ text: 'Yes \n' }]
+        parts: [{ text: 'Yes' }]
       }
     ];
 
     const chatSession = gemini.startChat({
       history,
       generationConfig: {
-        temperature: 1,
+        temperature: 2,
         topP: 0.95,
         topK: 64,
-        maxOutputTokens: 8192,
+        maxOutputTokens: 64,
         responseMimeType: 'text/plain'
       }
     });
 
-    const result = await chatSession.sendMessage(prompt);
+    const result = await chatSession.sendMessage(prompt.trim());
+
+    console.log(
+      prompt.trim(),
+      '\n',
+      '###############',
+      '\n',
+      result.response.text().trim()
+    );
 
     return result.response.text().trim();
   }

@@ -7,13 +7,13 @@ import gen from '@/training/gen';
 
 export default class {
   public static async generateCodeSnippet(
-    req: FastifyRequest<{ Querystring: { prompt: string } }>,
+    req: FastifyRequest<{ Body: { prompt: string } }>,
     reply: FastifyReply
   ) {
-    const codeSnippet = await gen.codeSnippet(req.query.prompt);
+    const codeSnippet = await gen.codeSnippet(req.body.prompt);
 
     const [explanation, language] = await Promise.all([
-      gen.explanation({ prompt: req.query.prompt, codeSnippet }),
+      gen.explanation({ prompt: req.body.prompt, codeSnippet }),
       gen.programmingLanguage(codeSnippet)
     ]);
 
@@ -26,7 +26,7 @@ export default class {
         finish_reason: 'stop',
         code_snippet: codeSnippet.substring(
           codeSnippet.indexOf('\n') + 1,
-          codeSnippet.lastIndexOf('\n') - 1
+          codeSnippet.lastIndexOf('\n')
         ),
         language: language,
         explanation: explanation
@@ -34,7 +34,7 @@ export default class {
     });
 
     CodeSnippet.insert({
-      prompt: req.query.prompt,
+      prompt: req.body.prompt,
       code: codeSnippet,
       explanation: explanation,
       language: language
@@ -42,10 +42,10 @@ export default class {
   }
 
   public static async isCodeRelatedResearch(
-    req: FastifyRequest<{ Querystring: { research: string } }>,
+    req: FastifyRequest<{ Body: { research: string } }>,
     reply: FastifyReply
   ) {
-    const text = await gen.isCodeRelatedResearch(req.query.research);
+    const text = await gen.isCodeRelatedResearch(req.body.research);
 
     reply.type('text/plain');
 
