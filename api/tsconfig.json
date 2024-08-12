@@ -1,19 +1,20 @@
 {
   "compilerOptions": {
-    "target": "esnext",
+    "target": "es6",
     "module": "commonjs",
     "moduleResolution": "node",
-    "lib": ["ESNext", "DOM", "DOM.Iterable", "WebWorker"],
-    "types": ["./declarations.d.ts", "chrome", "node"],
-    "typeRoots": ["./node_modules/@types", "./api/types", "./"],
+    "lib": ["ES6"],
+    "types": ["../declarations.d.ts", "node"],
     "resolveJsonModule": true,
     "emitDecoratorMetadata": true,
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./api/*", "e2e-chrome/*", "./ext-chrome/*"]
+      "@/*": ["./*"]
     }
   },
   "include": ["**/*.ts", "**/*.d.ts"],

@@ -4,11 +4,12 @@
   "description": "",
   "main": "app.ts",
   "scripts": {
-    "ts:node": "ts-node -r tsconfig-paths/register -P ../tsconfig.json",
+    "serve": "npm run ts:node app.ts",
     "start": "pnpm run ts:node app.ts",
     "develop": "nodemon -r tsconfig-paths/register -P ../tsconfig.json app.ts",
     "db:migrate": "pnpm run ts:node ./database/scripts/migrate.ts",
     "db:wipe": "pnpm run ts:node ./database/scripts/wipe.ts",
+    "ts:node": "ts-node -r tsconfig-paths/register -P ../tsconfig.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
