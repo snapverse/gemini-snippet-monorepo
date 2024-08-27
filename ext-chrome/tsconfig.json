@@ -5,6 +5,7 @@
     "moduleResolution": "node",
     "lib": ["ES6", "DOM", "DOM.Iterable", "WebWorker"],
     "types": ["declarations.d.ts", "chrome", "node"],
+    "esModuleInterop": true,
     "typeRoots": [
       "./",
       "./node_modules/@types",

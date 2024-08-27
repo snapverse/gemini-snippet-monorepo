@@ -4,18 +4,20 @@
   "description": "",
   "main": "app.ts",
   "scripts": {
-    "build": "pnpm exec ts-node build.ts",
+    "build:compress:zip": "zip -r dist.zip dist/",
+    "build:compress:gz": "tar -czvf dist.tar.gz dist/",
+    "build:uncompress": "pnpm exec ts-node build.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "add": "^2.0.6",
+    "@types/node": "^20.14.10",
     "chrome-types": "^0.1.297",
     "clean-css": "^5.3.3",
     "html-minifier": "^4.0.0",
     "ts-node": "^10.9.2",
-    "typescript-transpile-only": "^0.0.4"
+    "typescript": "5.2.2"
   }
 }

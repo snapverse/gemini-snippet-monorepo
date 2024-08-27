@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 
-const BASE_URL = 'http://127.0.0.1:5000';
+const BASE_URL = '';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const genCodeSnippet = ({ root }: { root: HTMLElement }) => {
@@ -42,21 +42,21 @@ const genCodeSnippet = ({ root }: { root: HTMLElement }) => {
     const query = textarea?.value ?? params.get('q');
 
     try {
-      const isCodeRelated = await fetch(
-        `${BASE_URL}/gemini/isCodeRelatedResearch`,
-        {
-          method: 'PATCH',
-          body: JSON.stringify({ research: query }),
-          headers: new Headers({
-            'Content-Type': 'application/json',
-            Accept: 'text/plain'
-          })
-        }
-      );
+      // const isCodeRelated = await fetch(
+      //   `${BASE_URL}/gemini/isCodeRelatedResearch`,
+      //   {
+      //     method: 'PATCH',
+      //     body: JSON.stringify({ research: query }),
+      //     headers: new Headers({
+      //       'Content-Type': 'application/json',
+      //       Accept: 'text/plain'
+      //     })
+      //   }
+      // );
 
-      if (isCodeRelated.status !== 200) {
-        throw new Error('Is not code related');
-      }
+      // if (isCodeRelated.status !== 200) {
+      //   throw new Error('Is not code related');
+      // }
 
       renderLoading();
 
