@@ -45,7 +45,7 @@
       ]
     }
   ],
-  "permissions": ["scripting", "activeTab", "clipboardWrite", "alarms"],
+  "permissions": ["scripting", "activeTab", "clipboardWrite"],
   "host_permissions": ["https://*/*", "http://*/*"],
   "web_accessible_resources": [
     {
