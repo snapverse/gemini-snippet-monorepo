@@ -7,5 +7,5 @@ export default process.env as {
   GEMINI_API_KEY?: string;
   SERVER_HOST: string;
   SERVER_PORT?: string;
-  SERVER_EXPOSED_HOST?: string;
+  SERVER_EXPOSED_URL?: string;
 };
