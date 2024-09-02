@@ -37,8 +37,9 @@
         "/contentScripts/googleSearch/index.js"
       ],
       "css": [
-        "/addons/prism/theme.css",
         "/globals/theme/reset.css",
+        "/globals/theme/colors.css",
+        "/addons/prism/theme.css",
         "/components/SkeletonLoading/index.css",
         "/components/CodeSnippet/index.css",
         "/contentScripts/googleSearch/index.css"
