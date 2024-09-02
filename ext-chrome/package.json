@@ -1,6 +1,6 @@
 {
   "name": "ext-chrome",
-  "version": "1.0.0",
+  "version": "0.2.0-beta",
   "description": "",
   "main": "app.ts",
   "scripts": {
@@ -11,10 +11,10 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "",
   "devDependencies": {
+    "@types/chrome": "^0.0.270",
     "@types/node": "^20.14.10",
-    "chrome-types": "^0.1.297",
     "clean-css": "^5.3.3",
     "html-minifier": "^4.0.0",
     "ts-node": "^10.9.2",

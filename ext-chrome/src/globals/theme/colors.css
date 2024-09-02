@@ -1,0 +1,269 @@
+:root {
+  --cian-hue: 217;
+  --cian-saturation: 89%;
+  --cian-lightness: 82%;
+
+  --black-hue: 210;
+  --black-saturation: 5%;
+  --black-lightness: 16%;
+
+  --white-hue: 0;
+  --white-saturation: 0%;
+  --white-lightness: 89%;
+
+  --gray-hue: 220;
+  --gray-saturation: 3%;
+  --gray-lightness: 77%;
+
+  --dark-gray-hue: 207;
+  --dark-gray-saturation: 5%;
+  --dark-gray-lightness: 52%;
+
+  --darker-gray-hue: 213;
+  --darker-gray-saturation: 6%;
+  --darker-gray-lightness: 38%;
+
+  --green-hue: 137;
+  --green-saturation: 40%;
+  --green-lightness: 65%;
+
+  --yellow-hue: 45;
+  --yellow-saturation: 97%;
+  --yellow-lightness: 69%;
+
+  --orange-hue: 26;
+  --orange-saturation: 95%;
+  --orange-lightness: 61%;
+
+  --blue-hue: 217;
+  --blue-saturation: 89%;
+  --blue-lightness: 76%;
+
+  --purple-hue: 272;
+  --purple-saturation: 90%;
+  --purple-lightness: 76%;
+
+  --dark-blue-hue: 218;
+  --dark-blue-saturation: 68%;
+  --dark-blue-lightness: 56%;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+
+    --gemini-brand-foreground: hsl(
+      var(--cian-hue),
+      var(--cian-saturation),
+      var(--cian-lightness)
+    );
+
+    --text-background: hsl(
+      var(--black-hue),
+      var(--black-saturation),
+      var(--black-lightness)
+    );
+    --text-foreground: hsl(
+      var(--white-hue),
+      var(--white-saturation),
+      var(--white-lightness)
+    );
+
+    --icon-foreground: hsl(
+      var(--gray-hue) var(--gray-saturation),
+      var(--gray-lightness)
+    );
+    --icon-background: rgb(98 98 98 / 25%);
+
+    --language-foreground: hsl(
+      var(--gray-hue),
+      var(--gray-saturation),
+      var(--gray-lightness)
+    );
+
+    --action-foreground: hsl(
+      var(--gray-hue) var(--gray-saturation),
+      var(--gray-lightness)
+    );
+    --action-background: rgb(196 199 197 / 10%);
+
+    --plain-text-background: hsl(
+      var(--black-hue),
+      var(--black-saturation),
+      var(--black-lightness)
+    );
+    --plain-text-foreground: hsl(
+      var(--gray-hue),
+      var(--gray-saturation),
+      var(--gray-lightness)
+    );
+
+    --punctuation-foreground: hsl(
+      var(--gray-hue),
+      var(--gray-saturation),
+      var(--gray-lightness)
+    );
+
+    --comment-foreground: hsl(
+      var(--gray-hue),
+      var(--gray-saturation),
+      calc(var(--gray-lightness) / 2)
+    );
+
+    --string-foreground: hsl(
+      var(--green-hue),
+      var(--green-saturation),
+      var(--green-lightness)
+    );
+
+    --function-foreground: hsl(
+      var(--yellow-hue),
+      var(--yellow-saturation),
+      var(--yellow-lightness)
+    );
+
+    --number-foreground: hsl(
+      var(--orange-hue),
+      var(--orange-saturation),
+      var(--orange-lightness)
+    );
+
+    --symbol-foreground: hsl(
+      var(--blue-hue),
+      var(--blue-saturation),
+      var(--blue-lightness)
+    );
+
+    --keyword-foreground: hsl(
+      var(--purple-hue),
+      var(--purple-saturation),
+      var(--purple-lightness)
+    );
+
+    --skeleton-primary-background: hsl(
+      var(--dark-blue-hue),
+      var(--dark-blue-saturation),
+      var(--dark-blue-lightness)
+    );
+    --skeleton-secondary-background: hsl(
+      var(--darker-gray-hue),
+      var(--darker-gray-saturation),
+      var(--darker-gray-lightness)
+    );
+    --skeleton-optional-background: hsl(
+      var(--black-hue),
+      var(--black-saturation),
+      var(--black-lightness)
+    );
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color-scheme: light;
+
+    --gemini-brand-foreground: hsl(
+      var(--cian-hue),
+      var(--cian-saturation),
+      calc(var(--cian-lightness) / 1.25)
+    );
+
+    --text-background: hsl(
+      var(--black-hue),
+      var(--black-saturation),
+      calc(var(--black-lightness) * 6.085)
+    );
+    --text-foreground: hsl(
+      var(--white-hue),
+      var(--white-saturation),
+      calc(var(--white-lightness) / 4)
+    );
+
+    --icon-foreground: hsl(
+      var(--gray-hue) var(--gray-saturation),
+      var(--gray-lightness)
+    );
+    --icon-background: rgb(225 225 255 / 25%);
+
+    --language-foreground: hsl(
+      var(--gray-hue),
+      var(--gray-saturation),
+      calc(var(--gray-lightness) / 2.275)
+    );
+
+    --action-foreground: hsl(
+      var(--gray-hue) var(--gray-saturation),
+      calc(var(--gray-lightness) / 2.275)
+    );
+    --action-background: rgb(187 187 187 / 10%);
+
+    --plain-text-background: hsl(
+      var(--black-hue),
+      var(--black-saturation),
+      calc(var(--black-lightness) * 6.085)
+    );
+    --plain-text-foreground: hsl(
+      var(--gray-hue),
+      var(--gray-saturation),
+      calc(var(--gray-lightness) / 2.275)
+    );
+
+    --punctuation-foreground: hsl(
+      var(--gray-hue),
+      var(--gray-saturation),
+      calc(var(--gray-lightness) / 2.275)
+    );
+
+    --comment-foreground: hsl(
+      var(--gray-hue),
+      var(--gray-saturation),
+      calc(var(--gray-lightness) / 1.105)
+    );
+
+    --string-foreground: hsl(
+      var(--green-hue),
+      var(--green-saturation),
+      calc(var(--green-lightness) / 1.255)
+    );
+
+    --function-foreground: hsl(
+      var(--yellow-hue),
+      calc(var(--yellow-saturation) * 1.2),
+      calc(var(--yellow-lightness) / 1.4)
+    );
+
+    --number-foreground: hsl(
+      var(--orange-hue),
+      var(--orange-saturation),
+      var(--orange-lightness)
+    );
+
+    --symbol-foreground: hsl(
+      var(--blue-hue),
+      var(--blue-saturation),
+      calc(var(--blue-lightness) / 1.255)
+    );
+
+    --keyword-foreground: hsl(
+      var(--purple-hue),
+      var(--purple-saturation),
+      calc(var(--purple-lightness) / 1.35)
+    );
+
+    --skeleton-primary-background: hsl(
+      var(--dark-blue-hue),
+      var(--dark-blue-saturation),
+      calc(var(--dark-blue-lightness) * 1.25)
+    );
+    --skeleton-secondary-background: hsl(
+      var(--darker-gray-hue),
+      var(--darker-gray-saturation),
+      calc(var(--darker-gray-lightness) * 2)
+    );
+    --skeleton-optional-background: hsl(
+      var(--black-hue),
+      var(--black-saturation),
+      calc(var(--black-lightness) * 6.085)
+    );
+  }
+}

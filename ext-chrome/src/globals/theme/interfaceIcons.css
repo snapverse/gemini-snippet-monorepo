@@ -22,9 +22,13 @@
   position: relative;
   z-index: 9;
   cursor: pointer;
-  color: #c4c7c5;
-
   direction: ltr;
+  color: var(--plain-text-foreground) !important;
+
+  user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
   -webkit-font-feature-settings: 'liga';
   -webkit-font-smoothing: antialiased;
 }
@@ -49,7 +53,7 @@
   width: 40px;
   height: 40px;
   border-radius: 100%;
-  background-color: rgb(98 98 98 / 25%);
+  background-color: var(--icon-background);
   opacity: 0;
 
   will-change: scale;
