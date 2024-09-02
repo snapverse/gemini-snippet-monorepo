@@ -16,6 +16,10 @@ export const SWAGGER_OPTIONS: FastifyDynamicSwaggerOptions = {
       {
         url: `http://${env.SERVER_HOST}:${env.SERVER_PORT}`,
         description: 'Development server'
+      },
+      {
+        url: env.SERVER_EXPOSED_URL,
+        description: 'Exposed server'
       }
     ],
     tags: [
