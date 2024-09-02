@@ -4,7 +4,7 @@
 }
 
 .gem_ChromeSnippetContainer > p {
-  color: #e3e3e3;
+  color: var(--text-foreground);
   font-size: 16px;
   line-height: 22px;
   font-weight: 400;
@@ -44,7 +44,7 @@
   padding-bottom: 8px;
   padding-left: 15px;
 
-  background-color: #27292b;
+  background-color: var(--plain-text-background);
 }
 
 .gem_ChromeSnippet div[role='header'] strong {
@@ -55,7 +55,7 @@
   line-height: normal;
   text-transform: capitalize;
 
-  color: #c4c7c5;
+  color: var(--plain-text-foreground);
 }
 
 .gem_ChromeSnippet pre[role='code'] {
@@ -84,8 +84,8 @@
   font-style: normal;
   line-height: normal;
 
-  color: white;
-  background-color: #27292b;
+  color: var(--plain-text-foreground);
+  background-color: var(--plain-text-background);
 }
 
 .gem_ChromeSnippet div[role='footer'] {
@@ -105,7 +105,7 @@
   padding-left: 15px;
   padding-right: 15px;
 
-  background-color: #27292b;
+  background-color: var(--plain-text-background);
 }
 
 .gem_ChromeSnippet div[role='footer'] i {
@@ -115,14 +115,14 @@
   font-family: sans-serif;
   line-height: normal;
 
-  color: #c4c7c5;
+  color: var(--plain-text-foreground);
 }
 
 .gem_ChromeSnippet div[role='footer'] i a {
   line-height: normal;
   text-decoration-line: underline;
 
-  color: #a8c7fa;
+  color: var(--gemini-brand-foreground);
 }
 
 .gem_ChromeSnippet div[role='votes'] {
@@ -145,14 +145,14 @@
   line-height: normal;
   font-family: sans-serif;
 
-  color: #e8eaed;
+  color: var(--text-foreground);
 }
 
 .gem_ChromeSnippet div[role='votes'] > span {
   font-size: 26px;
 
   opacity: 0.25;
-  color: #e8eaed;
+  color: var(--text-foreground);
 }
 
 .gem_ChromeSnippetContainer div[role='actions'] {
@@ -186,6 +186,10 @@
   font-family: sans-serif;
   text-transform: capitalize;
 
-  color: #c4c7c5;
-  background-color: rgba(196 199 197 / 10%);
+  color: var(--action-foreground);
+  background-color: var(--action-background);
+}
+
+.gem_ChromeSnippetContainer div[role='actions'] .gem_ChromeSnippetEngine img {
+  mix-blend-mode: exclusion;
 }
