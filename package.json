@@ -1,5 +1,5 @@
 {
-  "name": "ext-chrome-monorepo",
+  "name": "gemi-slice",
   "version": "0.2.0-beta",
   "keywords": [],
   "author": "",
@@ -12,7 +12,7 @@
     "node": ">=20.0.0 "
   },
   "scripts": {
-    "build:chrome": "pnpm --filter ext-chrome build",
+    "build:chrome": "pnpm --filter ext-chrome build:uncompress",
     "api:run": "pnpm --filter api start",
     "api:develop": "pnpm --filter api develop",
     "style:fix": "pnpm run prettier:fix && pnpm run eslint:fix",
