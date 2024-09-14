@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 
-const BASE_URL = '';
+const BASE_URL =
+  '';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const genCodeSnippet = ({ root }: { root: HTMLElement }) => {
@@ -43,10 +44,9 @@ const genCodeSnippet = ({ root }: { root: HTMLElement }) => {
 
     try {
       const isCodeRelated = await fetch(
-        `${BASE_URL}/gemini/isCodeRelatedResearch`,
+        `${BASE_URL}/gemini/isCodeRelatedResearch?research=${query}`,
         {
-          method: 'PATCH',
-          body: JSON.stringify({ research: query }),
+          method: 'GET',
           headers: new Headers({
             'Content-Type': 'application/json',
             Accept: 'text/plain'
@@ -54,8 +54,12 @@ const genCodeSnippet = ({ root }: { root: HTMLElement }) => {
         }
       );
 
-      if (isCodeRelated.status !== 200) {
-        throw new Error('Is not code related');
+      const isCodeRelatedPercentage = Number(await isCodeRelated.text());
+
+      if (isCodeRelatedPercentage <= 50) {
+        throw new Error(
+          'The prompt relationship with programming is too low to generate a code snippet'
+        );
       }
 
       renderLoading();

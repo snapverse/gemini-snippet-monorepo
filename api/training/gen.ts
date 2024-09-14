@@ -124,14 +124,14 @@ export default {
         role: 'user',
         parts: [
           {
-            text: "Your purpose is to respond ONLY WITH 'Yes' or 'No' based on whether the research topic is related to fields like IoT, Programming, Algorithms, Development, DevOps, Data Science, Machine Learning, Artificial Intelligence..."
+            text: 'Your purpose is to answer ONLY a percentage (between 0 and 100) of how related the prompt is to Programming or Development'
           },
           { text: 'How to optimize SQL queries for large databases' }
         ]
       },
       {
         role: 'model',
-        parts: [{ text: 'Yes' }]
+        parts: [{ text: '90' }]
       },
       {
         role: 'user',
@@ -139,7 +139,7 @@ export default {
       },
       {
         role: 'model',
-        parts: [{ text: 'Yes' }]
+        parts: [{ text: '100' }]
       },
       {
         role: 'user',
@@ -147,7 +147,7 @@ export default {
       },
       {
         role: 'model',
-        parts: [{ text: 'Yes' }]
+        parts: [{ text: '100' }]
       },
       {
         role: 'user',
@@ -155,7 +155,7 @@ export default {
       },
       {
         role: 'model',
-        parts: [{ text: 'Yes' }]
+        parts: [{ text: '100' }]
       },
       {
         role: 'user',
@@ -163,7 +163,7 @@ export default {
       },
       {
         role: 'model',
-        parts: [{ text: 'No' }]
+        parts: [{ text: '0' }]
       },
       {
         role: 'user',
@@ -173,7 +173,7 @@ export default {
       },
       {
         role: 'model',
-        parts: [{ text: 'Yes' }]
+        parts: [{ text: '100' }]
       },
       {
         role: 'user',
@@ -183,7 +183,7 @@ export default {
       },
       {
         role: 'model',
-        parts: [{ text: 'No' }]
+        parts: [{ text: '0' }]
       },
       {
         role: 'user',
@@ -191,7 +191,55 @@ export default {
       },
       {
         role: 'model',
-        parts: [{ text: 'Yes' }]
+        parts: [{ text: '100' }]
+      },
+      {
+        role: 'user',
+        parts: [
+          {
+            text: 'What are the best practices for using version control in software development?'
+          }
+        ]
+      },
+      {
+        role: 'model',
+        parts: [{ text: '85' }]
+      },
+      {
+        role: 'user',
+        parts: [{ text: 'Can you suggest a good book on project management?' }]
+      },
+      {
+        role: 'model',
+        parts: [{ text: '10' }]
+      },
+      {
+        role: 'user',
+        parts: [
+          {
+            text: 'What is the difference between front-end and back-end development?'
+          }
+        ]
+      },
+      {
+        role: 'model',
+        parts: [{ text: '90' }]
+      },
+      {
+        role: 'user',
+        parts: [{ text: 'Tell me about the latest trends in graphic design.' }]
+      },
+      {
+        role: 'model',
+        parts: [{ text: '15' }]
+      },
+      {
+        role: 'user',
+        parts: [{ text: 'How do I set up a CI/CD pipeline for my project?' }]
+      },
+      {
+        role: 'model',
+        parts: [{ text: '80' }]
       }
     ];
 

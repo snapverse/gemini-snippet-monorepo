@@ -42,17 +42,16 @@ export default class {
   }
 
   public static async isCodeRelatedResearch(
-    req: FastifyRequest<{ Body: { research: string } }>,
+    req: FastifyRequest<{ Querystring: { research: string } }>,
     reply: FastifyReply
   ) {
-    const text = await gen.isCodeRelatedResearch(req.body.research);
+    const research = decodeURIComponent(req.query.research);
+    console.log(research);
+
+    const text = await gen.isCodeRelatedResearch(research);
 
     reply.type('text/plain');
 
-    if (text.trim() === 'Yes') {
-      return reply.code(200).send('Yes');
-    } else {
-      return reply.code(204).send('No'); // fastify seems to delete this if 204
-    }
+    return reply.code(200).send(text);
   }
 }
