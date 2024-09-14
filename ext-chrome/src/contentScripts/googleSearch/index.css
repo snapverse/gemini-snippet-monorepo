@@ -4,3 +4,11 @@
   margin-top: 15px;
   margin-bottom: 25px;
 }
+
+.gem_HoverSpin {
+  width: 44px !important;
+  transition: transform 500ms ease-in-out;
+}
+.gem_HoverSpin:hover {
+  transform: rotate3d(0, 1, 0, 180deg);
+}
