@@ -1,12 +1,12 @@
 {
   "$schema": "https://json.schemastore.org/chrome-manifest",
   "manifest_version": 3,
-  "name": "Gemini Snippet on Search",
+  "name": "Gemi Slice | Gemini Snippet on Search",
   "author": "simonvillafanee3@gmail.com",
   "description": "The easiest way to find your code solutions in Google Chrome",
   "version": "0.1.0",
   "action": {
-    "default_title": "Gemini Snippet on Search",
+    "default_title": "Gemi Slice | Gemini Snippet on Search",
     "default_popup": "/action/defaultPopup/index.html",
     "default_icon": {
       "16": "/favicon.png",
